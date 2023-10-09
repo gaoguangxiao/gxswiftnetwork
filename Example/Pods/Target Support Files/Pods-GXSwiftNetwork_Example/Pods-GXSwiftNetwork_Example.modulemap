@@ -1,0 +1,6 @@
+framework module Pods_GXSwiftNetwork_Example {
+  umbrella header "Pods-GXSwiftNetwork_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

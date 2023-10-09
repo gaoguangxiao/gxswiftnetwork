@@ -1,0 +1,42 @@
+PODS:
+  - Alamofire (5.8.0)
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - GXSwiftNetwork (0.1.0):
+    - Alamofire
+    - HandyJSON
+    - Moya
+  - HandyJSON (5.0.2)
+  - Moya (15.0.0):
+    - Moya/Core (= 15.0.0)
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase (~> 2.1.4)
+  - GXSwiftNetwork (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - FBSnapshotTestCase
+    - HandyJSON
+    - Moya
+
+EXTERNAL SOURCES:
+  GXSwiftNetwork:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Alamofire: 0e92e751b3e9e66d7982db43919d01f313b8eb91
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  GXSwiftNetwork: 629618882e88f80e37a787556ec34deb01423623
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+
+PODFILE CHECKSUM: c9f81f014d8c641d7406c4965443e1b426fc28ad
+
+COCOAPODS: 1.12.1
