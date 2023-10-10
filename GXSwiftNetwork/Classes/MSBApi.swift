@@ -148,28 +148,28 @@ extension MSBApi {
 //    public var showErrorMsg: Bool { requestShowErrorMsg }
     public var task: Task {
         if !requestParameters.keys.isEmpty {
-            if (method == .post) {
-                if requestParameters["file"] != nil {
-                    if let image = requestParameters["file"] as? UIImage , let imageData : Data = image.jpegData(compressionQuality: 0.9) {
-                        //根据当前时间设置图片上传时候的名字
-                        let date:Date = Date()
-                        let formatter = DateFormatter()
-                        formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
-                        var dateStr:String = formatter.string(from: date as Date)
-                        
-                        let formData = MultipartFormData(provider: .data(imageData), name: "file", fileName: dateStr, mimeType: "image/jpeg")
-                        return .uploadMultipart([formData])
-                    } else {
-                        return .requestParameters(parameters: requestParameters, encoding: URLEncoding.default)
-                    }
-                    
-                } else {
-                    return .requestParameters(parameters: requestParameters, encoding: URLEncoding.default)
-                }
-            } else {
-                return .requestParameters(parameters: requestParameters, encoding: URLEncoding.default)
-            }
-            
+//            if (method == .post) {
+//                if requestParameters["fileData"] != nil {
+//                    if let imageData = requestParameters["fileData"] as? Data  {
+//                        //根据当前时间设置图片上传时候的名字
+//                        let date:Date = Date()
+//                        let formatter = DateFormatter()
+//                        formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
+//                        var dateStr:String = formatter.string(from: date as Date)
+//                        
+//                        let formData = MultipartFormData(provider: .data(imageData), name: "file", fileName: dateStr, mimeType: "image/jpeg")
+//                        return .uploadMultipart([formData])
+//                    } else {
+//                        return .requestParameters(parameters: requestParameters, encoding: URLEncoding.default)
+//                    }
+//                    
+//                } else {
+//                    return .requestParameters(parameters: requestParameters, encoding: URLEncoding.default)
+//                }
+//            } else {
+//                return .requestParameters(parameters: requestParameters, encoding: URLEncoding.default)
+//            }
+            return .requestParameters(parameters: requestParameters, encoding: URLEncoding.default)
             //
         } else if !sampleData.isEmpty{
             return .requestData(sampleData)
