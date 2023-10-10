@@ -8,8 +8,9 @@ import Foundation
 import Moya
 import HandyJSON
 import Alamofire
+//import SwiftyUserDefaults
 import UIKit
-
+import PKHUD
 /* 使用方法：
  - 定义
  class exampleApi: BearShowApi {
@@ -35,7 +36,7 @@ import UIKit
  
  */
 
-open class MSBApi: Moya.TargetType {
+open class MSBApi: TargetType {
     
     open var mock: Bool { false }
     open var verbose: Bool { false }
@@ -43,31 +44,86 @@ open class MSBApi: Moya.TargetType {
     open var requestMethod: Moya.Method
     open var requestSampleData: String
     open var requestParameters: [String: Any]
+    open var requestShowErrorMsg: Bool
+    open var requestShowHUD: Bool
     
-    public init(path: String, method: Moya.Method = .get, parameters: [String: Any] = [:],
-                sampleData: String = "") {
+    public init(path: String,
+                method: Moya.Method = .get,
+                parameters: [String: Any] = [:],
+                sampleData: String = "",
+                showErrorMsg:Bool = false,
+                showHud:Bool = true) {
         requestPath = path
         requestMethod = method
         requestParameters = parameters
         requestSampleData = sampleData
-        
+        requestShowErrorMsg      = showErrorMsg
+        requestShowHUD   = showHud
         log("**************Request data = \(parameters)**************")
     }
     
+    //    //获取自定义json Decodable数据
+    //    open func request<T: Decodable>(success: @escaping ((T) -> Void),
+    //                                    failure: @escaping ((MSBApiError) -> Void) = defaultFailureHandle,
+    //                                    provider: MoyaProvider<MSBApi>? = nil,
+    //                                    atKeyPath: String? = nil,
+    //                                    fullResponse: ((Moya.Response) -> Void)? = nil) {
+    //        var useProvider = self.provider
+    //        if let paramProvider = provider {
+    //            useProvider = paramProvider
+    //        }
+    //        let logPosition = requestPath
+    //        useProvider.request(self, onFailure: { error in
+    //            if self.reportError(error: error) {
+    //                MSBApiConfig.shared.reportBuglyAbility?(error.status, ["网络错误":error.msg ?? "未知错误"])
+    //                log("❌ 【API】status:\(error.status) msg:\(error.msg ?? "") path: \(logPosition)")
+    //            }
+    //            failure(error)
+    //        }, onSuccess: { result in
+    //            success(result)
+    //        }, atKeyPath: atKeyPath, fullResponse: fullResponse)
+    //    }
+    
     /// 获取自定义json model数据
-    open func request<T: HandyJSON>(onSuccess: @escaping (T?) -> Void, onFailure: @escaping (MSBApiError) -> Void, provider: MoyaProvider<MSBApi>? = nil, fullResponse: ((Moya.Response) -> Void)? = nil) {
+    open func request<T: MSBApiModel<Any>>(onSuccess: @escaping (T?) -> Void,
+                                    onFailure: @escaping (MSBApiError) -> Void,
+                                    provider: MoyaProvider<MSBApi>? = nil,
+                                    fullResponse: ((Moya.Response) -> Void)? = nil) {
         var useProvider = self.provider
         if let paramProvider = provider {
             useProvider = paramProvider
         }
-        let logPosition = requestPath
-        useProvider.request(self, onFailure: { msbError in
-            if self.reportError(error: msbError) {
-                MSBApiConfig.shared.reportBuglyAbility?(msbError.status, ["网络错误":msbError.msg ?? "未知错误"])
-                log("❌ 【API】status:\(msbError.status) msg:\(msbError.msg ?? "") path: \(logPosition)")
-            }
-            onFailure(msbError)
-        }, onSuccess: onSuccess)
+        
+        
+//        let logPosition = requestPath
+        useProvider.request(self, self, onFailure: onFailure, onSuccess: onSuccess)
+
+//        useProvider.request(se,
+//                            onFailure: {
+//            msbError in
+//            
+//            if self.reportError(error: msbError) {
+//                MSBApiConfig.shared.reportBuglyAbility?(msbError.status, ["网络错误":msbError.msg ?? "未知错误"])
+//                log("❌ 【API】status:\(msbError.status) msg:\(msbError.msg ?? "") path: \(logPosition)")
+//            }
+//            
+//            onFailure(msbError)
+//        },
+//                            onSuccess: {
+//            jsonObject in
+////            let result = jsonObject as MSBApiModel<Any>
+////            //解析具体数据
+////            if !result.success {
+////
+////                if self.requestShowErrorMsg {
+////                    let msg = result.msg
+////                    HUD.flash(.label(msg),delay:1.5)
+////                }
+////                
+////            }
+//
+//            onSuccess(jsonObject)
+//        })
     }
     
 }
@@ -89,37 +145,36 @@ extension MSBApi {
     public var path: String { requestPath }
     public var method: Moya.Method { requestMethod }
     public var sampleData: Data { requestSampleData.data(using: String.Encoding.utf8) ?? Data() }
-    
+//    public var showErrorMsg: Bool { requestShowErrorMsg }
     public var task: Task {
         if !requestParameters.keys.isEmpty {
             if (method == .post) {
-//                if requestParameters["file"] != nil {
-//
-//                    if let image = requestParameters["file"] as? UIImage , let imageData : Data = image.jpegData(compressionQuality: 0.9){
-//                        
-//                        //根据当前时间设置图片上传时候的名字
-//                        let date:Date = Date()
-//                        let formatter = DateFormatter()
-//                        formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
-//                        var dateStr:String = formatter.string(from: date as Date)
-//                        
-//                        let formData = MultipartFormData(provider: .data(imageData), name: "file", fileName: dateStr, mimeType: "image/jpeg")
-////                        formDataAry?.add(formData)
-//                        return .uploadMultipart([formData])
-//
-//                    } else {
-//                        return .requestParameters(parameters: requestParameters, encoding: URLEncoding.default)
-//                    }
-//
-//                } else {
+                if requestParameters["file"] != nil {
+                    if let image = requestParameters["file"] as? UIImage , let imageData : Data = image.jpegData(compressionQuality: 0.9) {
+                        //根据当前时间设置图片上传时候的名字
+                        let date:Date = Date()
+                        let formatter = DateFormatter()
+                        formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
+                        var dateStr:String = formatter.string(from: date as Date)
+                        
+                        let formData = MultipartFormData(provider: .data(imageData), name: "file", fileName: dateStr, mimeType: "image/jpeg")
+                        return .uploadMultipart([formData])
+                    } else {
+                        return .requestParameters(parameters: requestParameters, encoding: URLEncoding.default)
+                    }
+                    
+                } else {
                     return .requestParameters(parameters: requestParameters, encoding: URLEncoding.default)
-//                }
+                }
             } else {
                 return .requestParameters(parameters: requestParameters, encoding: URLEncoding.default)
             }
             
             //
-        } else {
+        } else if !sampleData.isEmpty{
+            return .requestData(sampleData)
+        }
+        else {
             return .requestPlain
         }
     }

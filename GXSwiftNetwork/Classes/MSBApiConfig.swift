@@ -5,6 +5,7 @@
 //
 
 import Foundation
+//import SwiftyUserDefaults
 
 public let TokenUnable_Notification = "TokenUnable_Notification"
 public let ReportBuglyAbility_Notification = "ReportBuglyAbility_Notification"
@@ -61,8 +62,8 @@ public let ReportBuglyAbility_Notification = "ReportBuglyAbility_Notification"
     }
     
     private var commonHeaders: [String: String] {
-        let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? ""
-        let versionNumber = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+//        let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? ""
+//        let versionNumber = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
         
         var header : [String: String] = [:]
 //        header["token"] = MSBApi.getToken().token
@@ -70,7 +71,7 @@ public let ReportBuglyAbility_Notification = "ReportBuglyAbility_Notification"
 //        header["subject"] = "MUSIC_APP"
 //        header["device"] = "app"
 //        header["os-type"] = "ios"
-        header["Content-Type"] = "application/json;application/x-www-form-urlencoded"
+        header["Content-Type"] = "application/json"
 //        header["version"] = versionNumber//1.6.3
 //        header["version-code"] = buildNumber //43
 //        header["buildcode"] = buildNumber

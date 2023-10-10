@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import Moya
+//import SwiftyUserDefaults
 
 /// 两个字典相加 +
 internal func + (left: [String: String], right: [String: String]) -> [String: String] {
@@ -61,4 +62,13 @@ extension Array: MSBRelativeModel where Element: MSBRelativeModel {
         self.first?.updateArray(self, comp)
     }
 }
+
+//public extension DefaultsKeys {
+//   
+//    static let token = DefaultsKey<String?> ("msb_token")
+//    static let tmpToken = DefaultsKey<String?> ("msb_tmp_token")
+//    static let tokenTime = DefaultsKey<String?>("msb_token_time")
+//    /// 用于防止退出登录后，其它还未返回的接口，返回时携带token
+//    static let tryToLoginTime = DefaultsKey<Int?> ("msb_tmp_try_login_time")
+//}
 

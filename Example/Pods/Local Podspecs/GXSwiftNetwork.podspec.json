@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "summary": "A short description of GXSwiftNetwork.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/小修/GXSwiftNetwork",
+  "homepage": "https://gitee.com/gtools",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,7 +12,7 @@
     "小修": "gaoguangxiao125@sina.com"
   },
   "source": {
-    "git": "https://github.com/小修/GXSwiftNetwork.git",
+    "git": "https://gitee.com/gtools/gxswift-network.git",
     "tag": "0.1.0"
   },
   "platforms": {
@@ -27,6 +27,9 @@
 
     ],
     "HandyJSON": [
+
+    ],
+    "PKHUD": [
 
     ]
   }

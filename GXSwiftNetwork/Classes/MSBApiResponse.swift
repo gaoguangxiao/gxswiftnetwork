@@ -8,15 +8,14 @@
 import Foundation
 import HandyJSON
 
-/// 注意⚠️ 适配老接口，及将废弃
-@available(*, deprecated, message: "注意⚠️ 将要废弃")
+
 public class MSBResponse<T: Decodable>: Decodable {
     public var code: Int = 0
-    public var status: String?
-    public var errors: String?
-    public var payload: T?
+    public var success: Int = 0
+    public var msg: String?
+    public var data: T?
     private enum CodingKeys: String, CodingKey {
-        case status, code, payload, errors
+        case success, code, data, msg
     }
 }
 
