@@ -19,9 +19,9 @@ class MSBLoginApi: MSBApi {
     }
 }
 
-public class GXLoginViewModel: NSObject {
+public class LoginApiService: NSObject {
     
-    public static func VerificationCode(param: String,closure: @escaping ((MSBApiModel<Any>?) -> ())) {
+    public static func requestCaptcha(param: String,closure: @escaping ((MSBApiModel?) -> ())) {
         let api = MSBLoginApi.VerificationCode(str: param)
         api.request { (result: MSBApiModel?) in
             closure(result)

@@ -8,10 +8,10 @@
 import Foundation
 import HandyJSON
 
-public class MSBApiModel<T>: NSObject , HandyJSON {
+open class MSBApiModel: NSObject , HandyJSON {
     required public override init() { }
-    public var data : T?
+//    open var data : T?
     public var success : Bool = false
     public var msg : String = ""
-    public var code : Int8 = 0
+    public var code : Int = 0
 }

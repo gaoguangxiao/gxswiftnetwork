@@ -85,7 +85,7 @@ open class MSBApi: TargetType {
     //    }
     
     /// 获取自定义json model数据
-    open func request<T: MSBApiModel<Any>>(onSuccess: @escaping (T?) -> Void,
+    open func request<T: MSBApiModel>(onSuccess: @escaping (T?) -> Void,
                                     onFailure: @escaping (MSBApiError) -> Void,
                                     provider: MoyaProvider<MSBApi>? = nil,
                                     fullResponse: ((Moya.Response) -> Void)? = nil) {
@@ -94,36 +94,7 @@ open class MSBApi: TargetType {
             useProvider = paramProvider
         }
         
-        
-//        let logPosition = requestPath
         useProvider.request(self, self, onFailure: onFailure, onSuccess: onSuccess)
-
-//        useProvider.request(se,
-//                            onFailure: {
-//            msbError in
-//            
-//            if self.reportError(error: msbError) {
-//                MSBApiConfig.shared.reportBuglyAbility?(msbError.status, ["网络错误":msbError.msg ?? "未知错误"])
-//                log("❌ 【API】status:\(msbError.status) msg:\(msbError.msg ?? "") path: \(logPosition)")
-//            }
-//            
-//            onFailure(msbError)
-//        },
-//                            onSuccess: {
-//            jsonObject in
-////            let result = jsonObject as MSBApiModel<Any>
-////            //解析具体数据
-////            if !result.success {
-////
-////                if self.requestShowErrorMsg {
-////                    let msg = result.msg
-////                    HUD.flash(.label(msg),delay:1.5)
-////                }
-////                
-////            }
-//
-//            onSuccess(jsonObject)
-//        })
     }
     
 }

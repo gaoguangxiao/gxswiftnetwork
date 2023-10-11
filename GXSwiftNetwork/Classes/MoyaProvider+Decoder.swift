@@ -15,7 +15,7 @@ import PKHUD
 extension MoyaProvider {
 
     /// 解析成想要的model类
-    internal func request<T: MSBApiModel<Any>>( _ target: Target,
+    internal func request<T: MSBApiModel>( _ target: Target,
                                          _ rTarget:MSBApi,
                                         onFailure: @escaping (MSBApiError) -> Void,
                                         onSuccess: @escaping (T?) -> Void,

@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E6452A02AD4E8A200CCF7B8 /* GXLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E64529E2AD4E8A200CCF7B8 /* GXLoginViewModel.swift */; };
+		1E6452A02AD4E8A200CCF7B8 /* LoginApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E64529E2AD4E8A200CCF7B8 /* LoginApiService.swift */; };
+		1E6ED9252AD63FA8006A1BF8 /* AudioApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ED9242AD63FA8006A1BF8 /* AudioApiService.swift */; };
+		1E6ED9272AD6441D006A1BF8 /* 20230919093347.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1E6ED9262AD6441D006A1BF8 /* 20230919093347.wav */; };
 		38F97EFFB9837F644537F4D6 /* Pods_GXSwiftNetwork_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCC97AE896764B14B2CFDA3 /* Pods_GXSwiftNetwork_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -31,7 +33,9 @@
 /* Begin PBXFileReference section */
 		0E04EF6C58EBA23539774107 /* Pods-GXSwiftNetwork_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GXSwiftNetwork_Tests.release.xcconfig"; path = "Target Support Files/Pods-GXSwiftNetwork_Tests/Pods-GXSwiftNetwork_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		121DDAA7A9CDCC0563379C54 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		1E64529E2AD4E8A200CCF7B8 /* GXLoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GXLoginViewModel.swift; sourceTree = "<group>"; };
+		1E64529E2AD4E8A200CCF7B8 /* LoginApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginApiService.swift; sourceTree = "<group>"; };
+		1E6ED9242AD63FA8006A1BF8 /* AudioApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioApiService.swift; sourceTree = "<group>"; };
+		1E6ED9262AD6441D006A1BF8 /* 20230919093347.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 20230919093347.wav; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* GXSwiftNetwork_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GXSwiftNetwork_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,9 +99,11 @@
 		607FACD21AFB9204008FA782 /* Example for GXSwiftNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				1E6ED9262AD6441D006A1BF8 /* 20230919093347.wav */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				1E64529E2AD4E8A200CCF7B8 /* GXLoginViewModel.swift */,
+				1E64529E2AD4E8A200CCF7B8 /* LoginApiService.swift */,
+				1E6ED9242AD63FA8006A1BF8 /* AudioApiService.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -252,6 +258,7 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				1E6ED9272AD6441D006A1BF8 /* 20230919093347.wav in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,8 +370,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E6ED9252AD63FA8006A1BF8 /* AudioApiService.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
-				1E6452A02AD4E8A200CCF7B8 /* GXLoginViewModel.swift in Sources */,
+				1E6452A02AD4E8A200CCF7B8 /* LoginApiService.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -23,12 +23,40 @@ class ViewController: UIViewController {
     
         let js = ["phone": "15737206055","type": 2].toJsonString
         if let _js = js {
-            GXLoginViewModel.VerificationCode(param: _js) { obj in
+            LoginApiService.requestCaptcha(param: _js) { obj in
                 
 //                print(obj?.msg ?? "")//                obj.msg
             }
         }
        
+    }
+    
+    @IBAction func 获取音频打分(_ sender: Any) {
+
+        let filePath = Bundle.main.path(forResource: "20230919093347", ofType: "wav") ?? ""
+        
+        let operateList = ["scope","oss"]
+        let text = "I am Herry"
+        let path = "/audiotest/110"
+        let resultType = "0"
+        
+        var dict : [String : Any] = ["operateList":operateList,
+                                     "path":path,
+                                     "resultType":resultType,
+                                     "text":text]
+        
+        let data = filePath.toFileUrl?.base64FileData
+        dict["voiceData"] = data
+        let audioJSON = dict.toJsonString ?? ""
+        AudioApiService.share.requestVoiceScope(params: audioJSON) { vsModel in
+            print(vsModel?.data?.scope)
+            print(vsModel?.data?.fileUrl)
+        }
+//        RSAudioApiService.share.requestVoiceScope(params: audioJSON) { vsModel in
+//            print(vsModel?.code)
+//            print(vsModel?.sdata?.fileUrl)
+//            print(vsModel?.sdata?.scope)
+//        }
     }
     
     override func didReceiveMemoryWarning() {
