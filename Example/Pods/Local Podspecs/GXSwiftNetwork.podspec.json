@@ -1,7 +1,7 @@
 {
   "name": "GXSwiftNetwork",
-  "version": "0.1.0",
-  "summary": "A short description of GXSwiftNetwork.",
+  "version": "0.1.3",
+  "summary": "网络封装",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://gitee.com/gtools",
   "license": {
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://gitee.com/gtools/gxswift-network.git",
-    "tag": "0.1.0"
+    "tag": "0.1.3"
   },
   "platforms": {
     "ios": "10.0"

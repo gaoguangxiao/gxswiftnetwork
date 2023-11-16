@@ -61,6 +61,16 @@ public let ReportBuglyAbility_Notification = "ReportBuglyAbility_Notification"
         }
     }
     
+//  MARK: 请求头
+    ///add
+    public func appendHeader(_ header:[String:String]) {
+        MSBApiConfig.shared.headers = MSBApiConfig.shared.commonHeaders + header
+    }
+    ///remove
+    public func removeHeader(_ forKey:String) {
+        MSBApiConfig.shared.headers?.removeValue(forKey: forKey)
+    }
+
     private var commonHeaders: [String: String] {
 //        let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? ""
 //        let versionNumber = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
