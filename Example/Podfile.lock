@@ -6,7 +6,7 @@ PODS:
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
   - GGXSwiftExtension (0.1.8)
-  - GXSwiftNetwork (0.1.3):
+  - GXSwiftNetwork (0.1.4):
     - Alamofire
     - HandyJSON
     - Moya
@@ -42,7 +42,7 @@ SPEC CHECKSUMS:
   Alamofire: 0e92e751b3e9e66d7982db43919d01f313b8eb91
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   GGXSwiftExtension: f88a97e8b4e58b925f4864f016e3c23bec902088
-  GXSwiftNetwork: 70228afc79d3f3ea2e6144c7b6cb5caee8a01215
+  GXSwiftNetwork: 39de85ffb1e2ffa4818f0a11a310cd3f130df09a
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b

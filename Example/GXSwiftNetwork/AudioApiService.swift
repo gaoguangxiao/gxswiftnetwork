@@ -35,7 +35,7 @@ class RSAudioApi: MSBApi {
     
     class VoiceScopeApi: RSAudioApi {
         init(paras : String) {
-            super.init(path: "/cms/api/voice/scope",method: .post,sampleData: paras,showErrorMsg: false,showHud: false)
+            super.init(path: "/cms/api/voice/scope",method: .post,sampleData: paras,showErrorMsg: true,showHud: false)
         }
     }
 }

@@ -55,6 +55,9 @@ extension MoyaProvider {
                     default:
                         errorMessage = error.localizedDescription
                     }
+                    if rTarget.requestShowErrorMsg {
+                        HUD.flash(.label(errorMessage), delay: 1.5)
+                    }
                     onFailure(MSBApiError(status: response.statusCode, msg: errorMessage))
                 }
             case let .failure(moyaError):
