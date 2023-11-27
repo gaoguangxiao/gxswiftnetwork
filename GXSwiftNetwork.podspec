@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'GXSwiftNetwork'
-  s.version          = '0.1.4'
-  s.summary          = '增加网络报错提示'
+  s.version          = '0.1.5'
+  s.summary          = 'MSBApiModel属性可重写'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
