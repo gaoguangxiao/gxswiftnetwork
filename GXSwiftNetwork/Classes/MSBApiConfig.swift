@@ -61,6 +61,12 @@ public let ReportBuglyAbility_Notification = "ReportBuglyAbility_Notification"
         }
     }
     
+    //apihost
+    public func updateApiHost(_ host: String) {
+        MSBApiConfig.shared.apiHost = host
+        MSBApiConfig.shared.getApiHost = { host }
+    }
+    
 //  MARK: 请求头
     ///add
     public func appendHeader(_ header:[String:String]) {
