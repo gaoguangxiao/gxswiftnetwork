@@ -85,7 +85,7 @@ open class MSBApi: TargetType {
     //    }
     
     /// 获取自定义json model数据
-    open func request<T: MSBApiModel>(onSuccess: @escaping (T?) -> Void,
+    open func request<T: MSBApiModel>(onSuccess: @escaping (T) -> Void,
                                     onFailure: @escaping (MSBApiError) -> Void,
                                     provider: MoyaProvider<MSBApi>? = nil,
                                     fullResponse: ((Moya.Response) -> Void)? = nil) {

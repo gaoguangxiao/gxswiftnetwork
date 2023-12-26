@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'GXSwiftNetwork'
-  s.version          = '0.1.6'
-  s.summary          = '增加域名可修改'
+  s.version          = '0.1.7'
+  s.summary          = '增加401token失效异常抛出'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?

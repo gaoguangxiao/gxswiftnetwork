@@ -18,9 +18,18 @@ extension MoyaProvider {
     internal func request<T: MSBApiModel>( _ target: Target,
                                          _ rTarget:MSBApi,
                                         onFailure: @escaping (MSBApiError) -> Void,
-                                        onSuccess: @escaping (T?) -> Void,
+                                        onSuccess: @escaping (T) -> Void,
                                         fullResponse: ((Moya.Response) -> Void)? = nil) {
 //        let markedLoginTime = Defaults[.tryToLoginTime]
+        
+        func check401Fail(_ error: MSBApiError) {
+            if error.status == 401 || error.status == 1022 ||
+                error.status == 40001 || error.status == 40003  {
+                MSBApiConfig.shared.tokenInvalidateCallBack?()
+            }
+            onFailure(error)
+        }
+        
         if rTarget.requestShowHUD {
             HUD.show(.label("加载中..."))
         }
@@ -40,6 +49,10 @@ extension MoyaProvider {
                         let msg = model?.msg
                         HUD.flash(.label(msg), delay: 1.5)
                     }
+                    guard let model = model else {
+                        check401Fail(MSBApiError(status: response.statusCode, msg: "数据解析失败"))
+                        return
+                    }
                     onSuccess(model)
                 } catch let error {
                     
@@ -58,7 +71,7 @@ extension MoyaProvider {
                     if rTarget.requestShowErrorMsg {
                         HUD.flash(.label(errorMessage), delay: 1.5)
                     }
-                    onFailure(MSBApiError(status: response.statusCode, msg: errorMessage))
+                    check401Fail(MSBApiError(status: response.statusCode, msg: errorMessage))
                 }
             case let .failure(moyaError):
                 // Moya request error, possibly due to unreachable network.

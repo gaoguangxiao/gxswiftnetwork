@@ -1,7 +1,7 @@
 {
   "name": "GXSwiftNetwork",
-  "version": "0.1.6",
-  "summary": "增加域名可修改",
+  "version": "0.1.7",
+  "summary": "增加401token失效异常抛出",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/gaoguangxiao",
   "license": {
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/gaoguangxiao/gxswiftnetwork.git",
-    "tag": "0.1.6"
+    "tag": "0.1.7"
   },
   "platforms": {
     "ios": "10.0"
