@@ -40,7 +40,9 @@ open class MSBApi: TargetType {
     
     open var mock: Bool { false }
     open var verbose: Bool { false }
+    open var requestUrl: String?
     open var requestPath: String
+    open var requestHeaders: [String: String]?
     open var requestMethod: Moya.Method
     open var requestSampleData: String
     open var requestParameters: [String: Any]
@@ -53,15 +55,33 @@ open class MSBApi: TargetType {
                 sampleData: String = "",
                 showErrorMsg:Bool = false,
                 showHud:Bool = true) {
+//        requestUrl = url
         requestPath = path
         requestMethod = method
         requestParameters = parameters
+//        requestHeaders    = headers
         requestSampleData = sampleData
         requestShowErrorMsg      = showErrorMsg
         requestShowHUD   = showHud
-        log("**************Request data = \(parameters)**************")
     }
     
+    public init(url: String?,
+                path: String,
+                method: Moya.Method = .get,
+                headers:[String: String] = [:],
+                parameters: [String: Any] = [:],
+                sampleData: String = "",
+                showErrorMsg:Bool = false,
+                showHud:Bool = false) {
+        requestUrl = url
+        requestPath = path
+        requestMethod = method
+        requestParameters = parameters
+        requestHeaders    = headers
+        requestSampleData = sampleData
+        requestShowErrorMsg      = showErrorMsg
+        requestShowHUD   = showHud
+    }
     //    //获取自定义json Decodable数据
     //    open func request<T: Decodable>(success: @escaping ((T) -> Void),
     //                                    failure: @escaping ((MSBApiError) -> Void) = defaultFailureHandle,
@@ -86,9 +106,9 @@ open class MSBApi: TargetType {
     
     /// 获取自定义json model数据
     open func request<T: MSBApiModel>(onSuccess: @escaping (T) -> Void,
-                                    onFailure: @escaping (MSBApiError) -> Void,
-                                    provider: MoyaProvider<MSBApi>? = nil,
-                                    fullResponse: ((Moya.Response) -> Void)? = nil) {
+                                      onFailure: @escaping (MSBRespApiModel) -> Void,
+                                      provider: MoyaProvider<MSBApi>? = nil,
+                                      fullResponse: ((Moya.Response) -> Void)? = nil) {
         var useProvider = self.provider
         if let paramProvider = provider {
             useProvider = paramProvider
@@ -102,44 +122,60 @@ open class MSBApi: TargetType {
 // MARK: =================== TargetType
 extension MSBApi {
     public var baseURL: URL {
-        guard let apiHost = MSBApiConfig.shared.getApiHost?(), let url = URL(string: apiHost) else {
+        var apiHost: String?
+        if let requestUrl = requestUrl {
+            apiHost = requestUrl
+        } else if let requestUrl = MSBApiConfig.shared.getApiHost?() {
+            apiHost = requestUrl
+        }
+        guard let apiHost = apiHost, let url = URL(string: apiHost) else {
             fatalError("BaseURL could not be configured.")
         }
         return url
     }
     
     public var headers: [String: String]? {
-        print("********request headers=\(MSBApiConfig.shared.headers ?? [:])***********")
-        return MSBApiConfig.shared.headers
+        var _headers: [String: String]?
+        if let requestHeaders = requestHeaders {
+            _headers = requestHeaders
+        }
+        if let requestHeaders = MSBApiConfig.shared.headers {
+            _headers = requestHeaders
+        }
+        if let _headers = _headers {
+            print("********request headers=\(_headers)***********")
+            return _headers
+        }
+        return [:]
     }
     
     public var path: String { requestPath }
     public var method: Moya.Method { requestMethod }
     public var sampleData: Data { requestSampleData.data(using: String.Encoding.utf8) ?? Data() }
-//    public var showErrorMsg: Bool { requestShowErrorMsg }
+    //    public var showErrorMsg: Bool { requestShowErrorMsg }
     public var task: Task {
         if !requestParameters.keys.isEmpty {
-//            if (method == .post) {
-//                if requestParameters["fileData"] != nil {
-//                    if let imageData = requestParameters["fileData"] as? Data  {
-//                        //根据当前时间设置图片上传时候的名字
-//                        let date:Date = Date()
-//                        let formatter = DateFormatter()
-//                        formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
-//                        var dateStr:String = formatter.string(from: date as Date)
-//                        
-//                        let formData = MultipartFormData(provider: .data(imageData), name: "file", fileName: dateStr, mimeType: "image/jpeg")
-//                        return .uploadMultipart([formData])
-//                    } else {
-//                        return .requestParameters(parameters: requestParameters, encoding: URLEncoding.default)
-//                    }
-//                    
-//                } else {
-//                    return .requestParameters(parameters: requestParameters, encoding: URLEncoding.default)
-//                }
-//            } else {
-//                return .requestParameters(parameters: requestParameters, encoding: URLEncoding.default)
-//            }
+            //            if (method == .post) {
+            //                if requestParameters["fileData"] != nil {
+            //                    if let imageData = requestParameters["fileData"] as? Data  {
+            //                        //根据当前时间设置图片上传时候的名字
+            //                        let date:Date = Date()
+            //                        let formatter = DateFormatter()
+            //                        formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
+            //                        var dateStr:String = formatter.string(from: date as Date)
+            //
+            //                        let formData = MultipartFormData(provider: .data(imageData), name: "file", fileName: dateStr, mimeType: "image/jpeg")
+            //                        return .uploadMultipart([formData])
+            //                    } else {
+            //                        return .requestParameters(parameters: requestParameters, encoding: URLEncoding.default)
+            //                    }
+            //
+            //                } else {
+            //                    return .requestParameters(parameters: requestParameters, encoding: URLEncoding.default)
+            //                }
+            //            } else {
+            //                return .requestParameters(parameters: requestParameters, encoding: URLEncoding.default)
+            //            }
             return .requestParameters(parameters: requestParameters, encoding: URLEncoding.default)
             //
         } else if !sampleData.isEmpty{

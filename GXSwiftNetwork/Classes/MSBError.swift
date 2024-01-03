@@ -9,20 +9,19 @@ import UIKit
 import Alamofire
 import Moya
 
-public struct MSBApiError: CustomStringConvertible {
-    public var status: Int
-    public var msg: String?
-    public var alreadyDecoedObj: Any?
-
-    public init(status: Int, msg: String?, alreadyDecoedObj: Any? = nil) {
-        self.status = status
-        self.msg = msg
-        self.alreadyDecoedObj = alreadyDecoedObj
-    }
+public class MSBApiError: MSBRespApiModel {
+//    public var code: Int = 0
+//    public var msg: String?
+//    public var alreadyDecoedObj: Any?
+//    public init(status: Int, alreadyDecoedObj: Any? = nil) {
+//        self.status = status
+////        super.msg = msg ?? ""
+//        self.alreadyDecoedObj = alreadyDecoedObj
+//    }
     
-    public var description: String {
-        return "[MSBApiError] \(status): \(msg ?? "")"
-    }
+//    public override var description: String {
+//        return "[MSBApiError] \(status): \(msg ?? "")"
+//    }
 }
 
 extension AFError {

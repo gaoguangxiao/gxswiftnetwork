@@ -1,12 +1,7 @@
 PODS:
   - Alamofire (5.8.0)
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
   - GGXSwiftExtension (0.1.8)
-  - GXSwiftNetwork (0.1.7):
+  - GXSwiftNetwork (0.1.8):
     - Alamofire
     - HandyJSON
     - Moya
@@ -19,7 +14,6 @@ PODS:
   - PKHUD (5.3.0)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase (~> 2.1.4)
   - GGXSwiftExtension
   - GXSwiftNetwork (from `../`)
 
@@ -31,8 +25,6 @@ SPEC REPOS:
     - HandyJSON
     - Moya
     - PKHUD
-  trunk:
-    - FBSnapshotTestCase
 
 EXTERNAL SOURCES:
   GXSwiftNetwork:
@@ -40,13 +32,12 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 0e92e751b3e9e66d7982db43919d01f313b8eb91
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   GGXSwiftExtension: f88a97e8b4e58b925f4864f016e3c23bec902088
-  GXSwiftNetwork: 20f6b1c0298f50f956203af58b2e056abe7b1c56
+  GXSwiftNetwork: 011684eea438bd6c5e60f7d187da683f5ae4feda
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
 
-PODFILE CHECKSUM: 8b062ecff6e1f7c5aabeece09bdf9a904b081f02
+PODFILE CHECKSUM: b02f3f416e6639c8e83158b71a5582b6718ea173
 
 COCOAPODS: 1.14.3

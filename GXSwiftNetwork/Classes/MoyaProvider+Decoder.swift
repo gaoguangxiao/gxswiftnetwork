@@ -17,14 +17,14 @@ extension MoyaProvider {
     /// 解析成想要的model类
     internal func request<T: MSBApiModel>( _ target: Target,
                                          _ rTarget:MSBApi,
-                                        onFailure: @escaping (MSBApiError) -> Void,
-                                        onSuccess: @escaping (T) -> Void,
+                                        onFailure: @escaping (MSBRespApiModel) -> Void,
+                                           onSuccess: @escaping (T) -> Void,
                                         fullResponse: ((Moya.Response) -> Void)? = nil) {
 //        let markedLoginTime = Defaults[.tryToLoginTime]
         
-        func check401Fail(_ error: MSBApiError) {
-            if error.status == 401 || error.status == 1022 ||
-                error.status == 40001 || error.status == 40003  {
+        func check401Fail(_ error: MSBRespApiModel) {
+            if error.code == 401 || error.code == 1022 ||
+                error.code == 40001 || error.code == 40003  {
                 MSBApiConfig.shared.tokenInvalidateCallBack?()
             }
             onFailure(error)
@@ -50,9 +50,15 @@ extension MoyaProvider {
                         HUD.flash(.label(msg), delay: 1.5)
                     }
                     guard let model = model else {
-                        check401Fail(MSBApiError(status: response.statusCode, msg: "数据解析失败"))
+                        let apiError = MSBRespApiModel(code: response.statusCode, msg: "数据解析失败")
+                        apiError.respAllHeaderFields = response.response?.allHeaderFields
+                        apiError.respData = response.data
+                        check401Fail(apiError)
                         return
                     }
+                    model.respAllHeaderFields = response.response?.allHeaderFields
+                    model.respData = response.data
+                    model.code = response.response?.statusCode ?? 0
                     onSuccess(model)
                 } catch let error {
                     
@@ -71,13 +77,16 @@ extension MoyaProvider {
                     if rTarget.requestShowErrorMsg {
                         HUD.flash(.label(errorMessage), delay: 1.5)
                     }
-                    check401Fail(MSBApiError(status: response.statusCode, msg: errorMessage))
+                    let apiError = MSBRespApiModel(code: response.statusCode, msg: errorMessage)
+                    apiError.respAllHeaderFields = response.response?.allHeaderFields
+                    apiError.respData = response.data
+                    check401Fail(apiError)
                 }
             case let .failure(moyaError):
                 // Moya request error, possibly due to unreachable network.
                 let nsError = moyaError as NSError
                 let msg = moyaError.msbDes != nil ? moyaError.msbDes : nsError.localizedDescription
-                onFailure(MSBApiError(status: nsError.code, msg: msg))
+                onFailure(MSBRespApiModel(code: nsError.code, msg: msg ?? ""))
             }
         }
     }

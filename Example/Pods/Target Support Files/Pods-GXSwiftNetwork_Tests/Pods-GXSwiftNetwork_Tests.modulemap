@@ -1,6 +1,0 @@
-framework module Pods_GXSwiftNetwork_Tests {
-  umbrella header "Pods-GXSwiftNetwork_Tests-umbrella.h"
-
-  export *
-  module * { export * }
-}

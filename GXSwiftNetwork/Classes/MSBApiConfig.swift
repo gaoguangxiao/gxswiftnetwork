@@ -38,9 +38,9 @@ public let ReportBuglyAbility_Notification = "ReportBuglyAbility_Notification"
         MSBApiConfig.shared.showHUDAbility = { error in
             // 根据业务需要展示API错误信息
             var showErr = error
-            if showErr.status == 6 {
-                showErr.msg = "网络连接不畅，请检查网络"
-            }
+//            if showErr.code == 6 {
+//                showErr.msg = "网络连接不畅，请检查网络"
+//            }
         }
         
         MSBApiConfig.shared.dismissHUDAbility = {

@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //配置域名
-        MSBApiConfig.shared.setApiConfig(apiHost: "http://gateway-test.risekid.cn", commonHeaders: [:], isAddDefaultHeaders: true)
+        MSBApiConfig.shared.setApiConfig(apiHost: "https://gateway-test.risekid.cn", commonHeaders: [:], isAddDefaultHeaders: true)
     }
 
     
@@ -23,9 +23,8 @@ class ViewController: UIViewController {
     
         let js = ["phone": "15737206055","type": 2].toJsonString
         if let _js = js {
-            LoginApiService.requestCaptcha(param: _js) { obj in
-                
-//                print(obj?.msg ?? "")//                obj.msg
+            LoginApiService.VerificationCode(param: _js) { obj in
+                print(obj?.msg ?? "")//                obj.msg
             }
         }
        
@@ -57,6 +56,20 @@ class ViewController: UIViewController {
 //            print(vsModel?.sdata?.fileUrl)
 //            print(vsModel?.sdata?.scope)
 //        }
+    }
+    
+    @IBAction func 代发请求(_ sender: Any) {
+        let url = "https://qa.risekid.cn/buddy/mojing.json"
+        
+        //图片
+        let api = MSBApi(url: url,
+                         path: "",
+                         method: .get)
+        api.request { result in
+            print(result)
+        } onFailure: { error in
+            print(error)
+        }
     }
     
     override func didReceiveMemoryWarning() {

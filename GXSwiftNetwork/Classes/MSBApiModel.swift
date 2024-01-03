@@ -8,10 +8,15 @@
 import Foundation
 import HandyJSON
 
-open class MSBApiModel: NSObject , HandyJSON {
-    required public override init() { }
+open class MSBApiModel: MSBRespApiModel , HandyJSON {
+    public required override init() {
+        super.init(code: 0, msg: "")
+    }
+    
+//    public override init() { }
 //    open var data : T?
     open var success : Bool = false
-    open var msg : String = ""
-    public var code : Int = 0
+//    open var msg : String = ""
 }
+
+
