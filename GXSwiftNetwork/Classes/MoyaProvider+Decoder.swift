@@ -51,17 +51,15 @@ extension MoyaProvider {
                     }
                     guard let model = model else {
                         let apiError = MSBRespApiModel(code: response.statusCode, msg: "数据解析失败")
-                        apiError.respAllHeaderFields = response.response?.allHeaderFields
                         apiError.respData = response.data
+                        apiError.response = response.response
                         check401Fail(apiError)
                         return
                     }
-                    model.respAllHeaderFields = response.response?.allHeaderFields
+                    model.response = response.response
                     model.respData = response.data
-                    model.code = response.response?.statusCode ?? 0
                     onSuccess(model)
                 } catch let error {
-                    
                     // HTTP statuc code error or json parsing error.
                     var errorMessage = ""
                     switch response.statusCode {
@@ -78,8 +76,9 @@ extension MoyaProvider {
                         HUD.flash(.label(errorMessage), delay: 1.5)
                     }
                     let apiError = MSBRespApiModel(code: response.statusCode, msg: errorMessage)
-                    apiError.respAllHeaderFields = response.response?.allHeaderFields
+//                    apiError.respAllHeaderFields = response.response?.allHeaderFields
                     apiError.respData = response.data
+                    apiError.response = response.response
                     check401Fail(apiError)
                 }
             case let .failure(moyaError):

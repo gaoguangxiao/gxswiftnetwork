@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (5.8.0)
   - GGXSwiftExtension (0.1.8)
-  - GXSwiftNetwork (0.1.8):
+  - GXSwiftNetwork (0.1.9):
     - Alamofire
     - HandyJSON
     - Moya
@@ -33,7 +33,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 0e92e751b3e9e66d7982db43919d01f313b8eb91
   GGXSwiftExtension: f88a97e8b4e58b925f4864f016e3c23bec902088
-  GXSwiftNetwork: 011684eea438bd6c5e60f7d187da683f5ae4feda
+  GXSwiftNetwork: b567a63cbffa81fb53ec29bade13a0f415e1e563
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
