@@ -69,8 +69,11 @@ public let ReportBuglyAbility_Notification = "ReportBuglyAbility_Notification"
     
 //  MARK: 请求头
     ///add
-    public func appendHeader(_ header:[String:String]) {
-        MSBApiConfig.shared.headers = MSBApiConfig.shared.commonHeaders + header
+    public func appendHeader(_ header:[String: String]) {
+        if let requestHeaders = self.headers {
+            MSBApiConfig.shared.headers = requestHeaders + header
+        }
+//        MSBApiConfig.shared.headers = MSBApiConfig.shared.commonHeaders + header
     }
     ///remove
     public func removeHeader(_ forKey:String) {

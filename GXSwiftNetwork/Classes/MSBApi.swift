@@ -68,7 +68,7 @@ open class MSBApi: TargetType {
     public init(url: String?,
                 path: String,
                 method: Moya.Method = .get,
-                headers:[String: String] = [:],
+                headers:[String: String]?,
                 parameters: [String: Any] = [:],
                 sampleData: String = "",
                 showErrorMsg:Bool = false,
@@ -138,8 +138,7 @@ extension MSBApi {
         var _headers: [String: String]?
         if let requestHeaders = requestHeaders {
             _headers = requestHeaders
-        }
-        if let requestHeaders = MSBApiConfig.shared.headers {
+        } else if let requestHeaders = MSBApiConfig.shared.headers {
             _headers = requestHeaders
         }
         if let _headers = _headers {
