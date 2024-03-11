@@ -1,8 +1,7 @@
 PODS:
-  - Alamofire (5.8.0)
+  - Alamofire (5.9.0)
   - GGXSwiftExtension (0.1.8)
   - GXSwiftNetwork (0.2.0):
-    - Alamofire
     - HandyJSON
     - Moya
     - PKHUD
@@ -31,13 +30,13 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: 0e92e751b3e9e66d7982db43919d01f313b8eb91
+  Alamofire: 02b772c9910e8eba1a079227c32fbd9e46c90a24
   GGXSwiftExtension: f88a97e8b4e58b925f4864f016e3c23bec902088
-  GXSwiftNetwork: a6b3f12448ffc57a93cc5b593679d1c467a82104
+  GXSwiftNetwork: 30566f3c8e8858a3930a3da94aa6d8c38c717386
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
 
 PODFILE CHECKSUM: b02f3f416e6639c8e83158b71a5582b6718ea173
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.0

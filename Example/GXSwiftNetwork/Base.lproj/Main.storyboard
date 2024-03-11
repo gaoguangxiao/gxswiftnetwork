@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,6 +19,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCo-lE-nzq">
+                                <rect key="frame" x="166.5" y="70" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.086274509799999996" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0X-Q3-7AV">
                                 <rect key="frame" x="26" y="120" width="90" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.45882352939999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -60,17 +66,38 @@
                                     <action selector="代发请求:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ghX-gW-baW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRu-vr-YsQ">
+                                <rect key="frame" x="26" y="205" width="90" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.45882352939999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1t4-cn-NXq"/>
+                                    <constraint firstAttribute="width" constant="90" id="RcP-Yc-RNA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="配置"/>
+                                <connections>
+                                    <action selector="配置:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="J05-cL-9LJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="d0X-Q3-7AV" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="10" id="8up-U8-hb4"/>
+                            <constraint firstItem="IRu-vr-YsQ" firstAttribute="top" secondItem="SkY-iG-3ab" secondAttribute="bottom" constant="10" id="9jJ-wO-jAm"/>
                             <constraint firstItem="SkY-iG-3ab" firstAttribute="top" secondItem="d0X-Q3-7AV" secondAttribute="bottom" constant="15" id="CuI-qe-zaT"/>
                             <constraint firstItem="IZh-SD-wKn" firstAttribute="leading" secondItem="d0X-Q3-7AV" secondAttribute="trailing" constant="10" id="G1B-lZ-PKH"/>
                             <constraint firstItem="d0X-Q3-7AV" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="100" id="SDy-sD-Ql7"/>
                             <constraint firstItem="SkY-iG-3ab" firstAttribute="leading" secondItem="d0X-Q3-7AV" secondAttribute="leading" id="cGR-NU-LVZ"/>
+                            <constraint firstItem="aCo-lE-nzq" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="50" id="m5y-VL-m0w"/>
+                            <constraint firstItem="aCo-lE-nzq" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="p2Z-nu-VM9"/>
+                            <constraint firstItem="IRu-vr-YsQ" firstAttribute="centerX" secondItem="SkY-iG-3ab" secondAttribute="centerX" id="teg-Th-j82"/>
                             <constraint firstItem="IZh-SD-wKn" firstAttribute="centerY" secondItem="d0X-Q3-7AV" secondAttribute="centerY" id="wSQ-9d-X2i"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="netRequestLab" destination="aCo-lE-nzq" id="nYe-Zg-ggB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
