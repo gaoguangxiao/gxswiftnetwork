@@ -7,23 +7,27 @@
 
 import UIKit
 import GXSwiftNetwork
-import HandyJSON
+//import HandyJSON
 class RSBaseVoiceScopeModel: MSBApiModel {
-    var data: RSVoiceScopeModel?
+//    var data: SmartAny?
 
 //    解析失败
-    init(msg: String, code: Int, success: Bool = false,_ data: RSVoiceScopeModel? = nil) {
-        super.init()
-        self.msg = msg
-        self.code = code
-        self.data = data
-        self.success = success
-    }
+//    init(msg: String, code: Int, success: Bool = false,_ data: SmartAny? = nil) {
+//        super.init()
+//        self.msg = msg
+//        self.code = code
+//        self.data = data
+//        self.success = success
+//    }
+//    
+//    required init() {
+//        super.init()
+////        fatalError("init() has not been implemented")
+//    }
     
-    required init() {
-        super.init()
-//        fatalError("init() has not been implemented")
-    }
+//    required init(from decoder: any Decoder) throws {
+//        fatalError("init(from:) has not been implemented")
+//    }
 }
 
 class RSVoiceScopeModel: MSBApiModel {
@@ -46,11 +50,11 @@ class AudioApiService: NSObject {
     }()
     
     func requestVoiceScope(params:String,closure: @escaping ((RSBaseVoiceScopeModel?) -> ())) {
-        let api = RSAudioApi.VoiceScopeApi(paras: params)
-        api.request { (result: RSBaseVoiceScopeModel?) in
-            closure(result)
-        } onFailure: { _ in
-            closure(nil)
-        }
+//        let api = RSAudioApi.VoiceScopeApi(paras: params)
+//        api.request { (result: RSBaseVoiceScopeModel?) in
+//            closure(result)
+//        } onFailure: { _ in
+//            closure(nil)
+//        }
     }
 }

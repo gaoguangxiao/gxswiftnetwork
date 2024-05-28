@@ -22,7 +22,7 @@ public let ReportBuglyAbility_Notification = "ReportBuglyAbility_Notification"
     public var reportBuglyAbility: ((Int, [String: Any]?) -> Void)?
     public var tokenInvalidateCallBack: (() -> Void)?
 
-    public var timeoutInterval: Double = 5
+    public var timeoutInterval: Float = 30
     
     internal var headers: [String: String]?
     internal var apiHost: String!

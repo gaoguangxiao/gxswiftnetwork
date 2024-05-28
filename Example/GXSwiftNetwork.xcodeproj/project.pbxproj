@@ -11,6 +11,7 @@
 		1E6510872B3D541900BF115D /* RSLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6510862B3D541900BF115D /* RSLoginModel.swift */; };
 		1E6ED9252AD63FA8006A1BF8 /* AudioApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ED9242AD63FA8006A1BF8 /* AudioApiService.swift */; };
 		1E6ED9272AD6441D006A1BF8 /* 20230919093347.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1E6ED9262AD6441D006A1BF8 /* 20230919093347.wav */; };
+		1E7AD2F12C0483C600971E8B /* RSConfigiOSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7AD2F02C0483C600971E8B /* RSConfigiOSModel.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		1E6510862B3D541900BF115D /* RSLoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSLoginModel.swift; sourceTree = "<group>"; };
 		1E6ED9242AD63FA8006A1BF8 /* AudioApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioApiService.swift; sourceTree = "<group>"; };
 		1E6ED9262AD6441D006A1BF8 /* 20230919093347.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 20230919093347.wav; sourceTree = "<group>"; };
+		1E7AD2F02C0483C600971E8B /* RSConfigiOSModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSConfigiOSModel.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* GXSwiftNetwork_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GXSwiftNetwork_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -37,7 +39,7 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		6BCC97AE896764B14B2CFDA3 /* Pods_GXSwiftNetwork_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GXSwiftNetwork_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F7AAC95D0FE162ADE5E9C27 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		828F1DF9174584E0821E4520 /* GXSwiftNetwork.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GXSwiftNetwork.podspec; path = ../GXSwiftNetwork.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		828F1DF9174584E0821E4520 /* GXSwiftNetwork.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GXSwiftNetwork.podspec; path = ../GXSwiftNetwork.podspec; sourceTree = "<group>"; };
 		A429A31F2602CF2C52B26F49 /* Pods_GXSwiftNetwork_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GXSwiftNetwork_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6FE779C6ECC007FD15E682 /* Pods-GXSwiftNetwork_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GXSwiftNetwork_Tests.debug.xcconfig"; path = "Target Support Files/Pods-GXSwiftNetwork_Tests/Pods-GXSwiftNetwork_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		FCC6762455D19C288235D47F /* Pods-GXSwiftNetwork_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GXSwiftNetwork_Example.release.xcconfig"; path = "Target Support Files/Pods-GXSwiftNetwork_Example/Pods-GXSwiftNetwork_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				1E64529E2AD4E8A200CCF7B8 /* LoginApiService.swift */,
+				1E7AD2F02C0483C600971E8B /* RSConfigiOSModel.swift */,
 				1E6510862B3D541900BF115D /* RSLoginModel.swift */,
 				1E6ED9242AD63FA8006A1BF8 /* AudioApiService.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -254,18 +257,18 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GGXSwiftExtension/GGXSwiftExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/GXSwiftNetwork/GXSwiftNetwork.framework",
-				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SmartCodable/SmartCodable.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GGXSwiftExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GXSwiftNetwork.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SmartCodable.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -279,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E7AD2F12C0483C600971E8B /* RSConfigiOSModel.swift in Sources */,
 				1E6ED9252AD63FA8006A1BF8 /* AudioApiService.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				1E6452A02AD4E8A200CCF7B8 /* LoginApiService.swift in Sources */,

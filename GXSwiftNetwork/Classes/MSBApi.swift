@@ -6,7 +6,7 @@
 
 import Foundation
 import Moya
-import HandyJSON
+//import HandyJSON
 import Alamofire
 //import SwiftyUserDefaults
 import UIKit
@@ -54,7 +54,7 @@ open class MSBApi: TargetType {
                 method: Moya.Method = .get,
                 parameters: [String: Any] = [:],
                 sampleData: String = "",
-                timeout: Float = 5,
+                timeout: Float = MSBApiConfig.shared.timeoutInterval,
                 showErrorMsg:Bool = false,
                 showHud:Bool = true) {
 //        requestUrl = url
@@ -133,7 +133,7 @@ extension MSBApi {
             if let outTimer = MSBApi.requestTimeoutInterval {
                 request.timeoutInterval = TimeInterval(outTimer)
             } else {
-                request.timeoutInterval =  MSBApiConfig.shared.timeoutInterval
+                request.timeoutInterval =  TimeInterval(MSBApiConfig.shared.timeoutInterval)
             }
             done(.success(request))
             

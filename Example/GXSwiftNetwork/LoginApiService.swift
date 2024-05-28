@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import HandyJSON
+//import HandyJSON
 import GXSwiftNetwork
 
 class LoginApi: MSBApi {

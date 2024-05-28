@@ -61,8 +61,8 @@ class ViewController: UIViewController {
         dict["voiceData"] = data
         let audioJSON = dict.toJsonString ?? ""
         AudioApiService.share.requestVoiceScope(params: audioJSON) { vsModel in
-            print(vsModel?.data?.scope)
-            print(vsModel?.data?.fileUrl)
+//            print(vsModel?.data?.scope)
+//            print(vsModel?.data?.fileUrl)
         }
         //        RSAudioApiService.share.requestVoiceScope(params: audioJSON) { vsModel in
         //            print(vsModel?.code)
@@ -87,16 +87,24 @@ class ViewController: UIViewController {
     
     @IBAction func 配置(_ sender: Any) {
         
-        let api = MSBApi(path: "/wap/api/config/ios",timeout: 1.0)
-        
-        self.startTimer()
-        api.request { result in
-            print(result)
-            self.endTimer()
-        } onFailure: { error in
-            print(error)
-            self.endTimer()
+        let api = ConfigApi.LaunchApi(paras: [:])
+        api.request { (result: RSConfigiOSBaseModel?) in
+            print("success: \(result?.success)")
+            print("data: \(result?.ydata)")
+        } onFailure: { _ in
+
         }
+        
+//        let api = MSBApi(path: "/wap/api/config/ios",timeout: 5.0)
+//        self.startTimer()
+//        api.request { result in
+//            print("success: \(result.success)")
+//            print("data: \(result.data)")
+//            self.endTimer()
+//        } onFailure: { error in
+//            print(error)
+//            self.endTimer()
+//        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

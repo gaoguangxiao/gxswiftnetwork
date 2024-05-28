@@ -14,5 +14,5 @@ public class RSBridgeLoginModel: MSBApiModel {
 
 
 public class RSLoginModel: MSBApiModel {
-    var data: String?
+//    public var data: String?
 }
