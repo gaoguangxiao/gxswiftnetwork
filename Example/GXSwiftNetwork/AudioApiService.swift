@@ -7,7 +7,6 @@
 
 import UIKit
 import GXSwiftNetwork
-//import HandyJSON
 class RSBaseVoiceScopeModel: MSBApiModel {
 //    var data: SmartAny?
 
