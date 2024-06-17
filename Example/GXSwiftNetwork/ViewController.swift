@@ -23,7 +23,7 @@ class ViewController: UIViewController {
 //        MSBApiConfig.shared.setApiConfig(apiHost: "https://gateway-test.risekid.cn", commonHeaders: [:], isAddDefaultHeaders: true)
         
 //    https://gw.risekid.cn/wap/api/config/ios
-        MSBApiConfig.shared.setApiConfig(apiHost: "https://gw.risekid.cn", commonHeaders: [:], isAddDefaultHeaders: true)
+        MSBApiConfig.shared.setApiConfig(apiHost: "https://gateway-test.risekid.cn", commonHeaders: [:], isAddDefaultHeaders: true)
     }
     
     

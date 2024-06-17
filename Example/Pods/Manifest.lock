@@ -1,7 +1,7 @@
 PODS:
-  - Alamofire (5.9.0)
-  - GGXSwiftExtension (0.1.8)
-  - GXSwiftNetwork (0.2.0):
+  - Alamofire (5.9.1)
+  - GGXSwiftExtension (0.5.8)
+  - GXSwiftNetwork (0.2.2):
     - Moya
     - PKHUD
     - SmartCodable
@@ -10,17 +10,16 @@ PODS:
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
   - PKHUD (5.3.0)
-  - SmartCodable (3.4.4)
+  - SmartCodable (4.0.2)
 
 DEPENDENCIES:
   - GGXSwiftExtension
   - GXSwiftNetwork (from `../`)
 
 SPEC REPOS:
-  https://gitee.com/gtools/mxs.git:
-    - GGXSwiftExtension
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
+    - GGXSwiftExtension
     - Moya
     - PKHUD
     - SmartCodable
@@ -30,12 +29,12 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: 02b772c9910e8eba1a079227c32fbd9e46c90a24
-  GGXSwiftExtension: f88a97e8b4e58b925f4864f016e3c23bec902088
-  GXSwiftNetwork: d17c380a89730f1541861ca0d817ea8e065bd7ab
+  Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
+  GGXSwiftExtension: 23fc72e1c2b4bafc4380fd493fe128b9fc9f6bcd
+  GXSwiftNetwork: f94d6144430c580846bb586f061269aca646d619
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
-  SmartCodable: 285a9220f1e719fa8e22ff2edbc8e3291f0406e7
+  SmartCodable: cd5ff26a28f42eaca0894f1d4bfa1d329d4f9340
 
 PODFILE CHECKSUM: b02f3f416e6639c8e83158b71a5582b6718ea173
 

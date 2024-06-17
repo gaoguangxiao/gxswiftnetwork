@@ -7,9 +7,6 @@
 
 import Foundation
 
-
-
-
 extension Patcher {
     struct Transformer {
         static func typeTransform(from jsonValue: Any?) -> T? {
@@ -44,15 +41,15 @@ extension Bool: TypeTransformable {
 
 extension String: TypeTransformable {
     static func transformValue(from value: Any) -> String? {
-        // 检查NSNumber实例是否代表Bool类型
         if let number = value as? NSNumber {
-            // 检查是否为布尔值，NSNumber表示布尔值时objCType返回的是"c"
+            // Check if it's a Boolean, NSNumber is a Boolean and objCType returns "c"
             if String(cString: number.objCType) == "c" {
                 return nil
             }
         }
-        
         switch value {
+        case let stringValue as String:
+            return stringValue
         case let intValue as Int:
             return String(intValue)
         case let floatValue as Float:
@@ -66,127 +63,125 @@ extension String: TypeTransformable {
 }
 
 
+
+
+
 extension Int: TypeTransformable {
     static func transformValue(from value: Any) -> Int? {
-        switch value {
-        case let temp as String:
-            return Int(temp)
-        case let temp as Float:
-            return Int(temp)
-        case let temp as Double:
-            return Int(temp)
-        case let temp as CGFloat:
-            return Int(temp)
-        default:
-            return nil
-        }
+        return _fixedWidthInteger(from: value)
     }
 }
 
 extension Int8: TypeTransformable {
     static func transformValue(from value: Any) -> Int8? {
-        switch value {
-        case let temp as String:
-            return Int8(temp)
-        case let temp as Float:
-            return Int8(temp)
-        case let temp as Double:
-            return Int8(temp)
-        case let temp as CGFloat:
-            return Int8(temp)
-        default:
-            return nil
-        }
+        return _fixedWidthInteger(from: value)
     }
 }
 
 extension Int16: TypeTransformable {
     static func transformValue(from value: Any) -> Int16? {
-        switch value {
-        case let temp as String:
-            return Int16(temp)
-        case let temp as Float:
-            return Int16(temp)
-        case let temp as Double:
-            return Int16(temp)
-        case let temp as CGFloat:
-            return Int16(temp)
-        default:
-            return nil
-        }
+        return _fixedWidthInteger(from: value)
     }
 }
 
 
 extension Int32: TypeTransformable {
     static func transformValue(from value: Any) -> Int32? {
-        switch value {
-        case let temp as String:
-            return Int32(temp)
-        case let temp as Float:
-            return Int32(temp)
-        case let temp as Double:
-            return Int32(temp)
-        case let temp as CGFloat:
-            return Int32(temp)
-        default:
-            return nil
-        }
+        return _fixedWidthInteger(from: value)
     }
 }
 
 extension Int64: TypeTransformable {
     static func transformValue(from value: Any) -> Int64? {
-        switch value {
-        case let temp as String:
-            return Int64(temp)
-        case let temp as Float:
-            return Int64(temp)
-        case let temp as Double:
-            return Int64(temp)
-        case let temp as CGFloat:
-            return Int64(temp)
-        default:
-            return nil
-        }
+        return _fixedWidthInteger(from: value)
+    }
+}
+
+extension UInt: TypeTransformable {
+    static func transformValue(from value: Any) -> UInt? {
+        return _fixedWidthInteger(from: value)
+    }
+}
+
+extension UInt8: TypeTransformable {
+    static func transformValue(from value: Any) -> UInt8? {
+        return _fixedWidthInteger(from: value)
+    }
+}
+
+extension UInt16: TypeTransformable {
+    static func transformValue(from value: Any) -> UInt16? {
+        return _fixedWidthInteger(from: value)
     }
 }
 
 
+extension UInt32: TypeTransformable {
+    static func transformValue(from value: Any) -> UInt32? {
+        return _fixedWidthInteger(from: value)
+    }
+}
+
+extension UInt64: TypeTransformable {
+    static func transformValue(from value: Any) -> UInt64? {
+        return _fixedWidthInteger(from: value)
+    }
+}
+
+
+
+
 extension Float: TypeTransformable {
     static func transformValue(from value: Any) -> Float? {
-        if let stringValue = value as? String {
-            return Float(stringValue)
-        }
-        return nil
+        _floatingPoint(from: value)
     }
 }
 
 
 extension Double: TypeTransformable {
     static func transformValue(from value: Any) -> Double? {
-        if let temp = value as? String {
-            return Double(temp)
-        }
-        return nil
+        _floatingPoint(from: value)
     }
 }
 
 
 extension CGFloat: TypeTransformable {
     static func transformValue(from value: Any) -> CGFloat? {
-        if let temp = value as? String, let doubleValue = Double(temp) {
-            return CGFloat(doubleValue)
+        if let temp: Double = _floatingPoint(from: value) {
+            return CGFloat(temp)
         }
         return nil
     }
 }
 
-/** 注意 inf
- * String类型的 “inf”，可以直接转成Double类型，代表无穷大和无穷小。
- * Swift 能够识别 "inf", "+inf", "-inf", "Infinity", "+Infinity", 和 "-Infinity" 这些表示形式，将它们转换为相应的无穷大或无穷小的 Double 值。
- *
- * 注意 nan
- * String类型的 “nan”，可以直接转成Double类型，代表不是一个数（Not a Number）的特殊值。
- * Swift 能够识别 "NaN", "Nan", "nan" 这些表示形式,并将其转换为表示不是一个数的 Double 值.
- */
+
+private func _floatingPoint<T: LosslessStringConvertible & BinaryFloatingPoint>(from value: Any) -> T? {
+    
+    // In Swift, FixedWidthInteger is a protocol that defines a set of operations and properties that are common to fixed-width integer types.
+    // The types that implement this protocol include all the integer types in the standard library,
+    // such as Int8, Int16, Int32, Int64 and their unsigned versions UInt8, UInt16, UInt32, UInt64.
+    switch value {
+    case let temp as String:
+        return T(temp)
+    case let temp as any FixedWidthInteger:
+        return T(temp)
+    default:
+        return nil
+    }
+}
+
+
+private func _fixedWidthInteger<T: FixedWidthInteger>(from value: Any) -> T? {
+    switch value {
+    case let temp as String:
+        return T(temp)
+    case let temp as Float:
+        return T(temp)
+    case let temp as Double:
+        return T(temp)
+    case let temp as CGFloat:
+        return T(temp)
+    default:
+        return nil
+    }
+}

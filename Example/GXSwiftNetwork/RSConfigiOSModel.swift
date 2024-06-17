@@ -22,7 +22,7 @@ class ConfigApi: MSBApi {
 
 public class RSConfigiOSBaseModel: MSBApiModel {
     var ydata: RSConfigiOSModel? {
-        return RSConfigiOSModel.deserialize(from: data?.peel as? Dictionary<String, Any>)
+        return RSConfigiOSModel.deserialize(from: data as? Dictionary<String, Any>)
     }
 }
 
