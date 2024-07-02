@@ -87,12 +87,24 @@ class ViewController: UIViewController {
     
     @IBAction func 配置(_ sender: Any) {
         
-        let api = ConfigApi.LaunchApi(paras: [:])
-        api.request { (result: RSConfigiOSBaseModel?) in
-            print("success: \(result?.success)")
-            print("data: \(result?.ydata)")
-        } onFailure: { _ in
-
+//        let api = ConfigApi.LaunchApi(paras: [:])
+//        api.request { (result: RSConfigiOSBaseModel?) in
+//            print("success: \(result?.success)")
+//            print("data: \(result?.ydata)")
+//        } onFailure: { _ in
+//
+//        }
+        
+        let dataRaw = [
+            "query":"红楼梦的作者",
+            "conversation_id":"10",
+            "user":"纳威",
+            "stream":0,
+            "bot_id":"7384378802530746385"
+        ] as [String : Any]
+        
+        AudioApiService.share.requestTextReply(dataRaw: dataRaw) { data in
+            
         }
         
 //        let api = MSBApi(path: "/wap/api/config/ios",timeout: 5.0)

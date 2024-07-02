@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5B10CAB2-1E49-49D3-827C-0F906AD6F9B6"
+            uuid = "A53F76F8-04CB-4650-9002-8256FACE6D45"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GXSwiftNetwork/ViewController.swift"
+            filePath = "Pods/Moya/Sources/Moya/Response.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "&#x914d;&#x7f6e;(_:)"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "mapJSON(failsOnEmptyData:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

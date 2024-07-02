@@ -10,6 +10,7 @@ import Alamofire
 //import SwiftyUserDefaults
 import UIKit
 import PKHUD
+import SmartCodable
 /* 使用方法：
  - 定义
  class exampleApi: BearShowApi {
@@ -119,6 +120,17 @@ open class MSBApi: TargetType {
         useProvider.request(self, self, onFailure: onFailure, onSuccess: onSuccess)
     }
     
+    open func request<T: SmartCodable>(onSuccess: @escaping (T) -> Void,
+                                      onFailure: @escaping (MSBRespApiModel) -> Void,
+                                      provider: MoyaProvider<MSBApi>? = nil,
+                                      fullResponse: ((Moya.Response) -> Void)? = nil) {
+        var useProvider = self.provider
+        if let paramProvider = provider {
+            useProvider = paramProvider
+        }
+        
+        useProvider.request(self, self, onFailure: onFailure, onSuccess: onSuccess)
+    }
 }
 
 // MARK: ==== Closure
