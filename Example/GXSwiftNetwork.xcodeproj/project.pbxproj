@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		1E6452A02AD4E8A200CCF7B8 /* LoginApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E64529E2AD4E8A200CCF7B8 /* LoginApiService.swift */; };
 		1E6510872B3D541900BF115D /* RSLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6510862B3D541900BF115D /* RSLoginModel.swift */; };
-		1E6ED9252AD63FA8006A1BF8 /* AudioApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ED9242AD63FA8006A1BF8 /* AudioApiService.swift */; };
+		1E6ED9252AD63FA8006A1BF8 /* ChatApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ED9242AD63FA8006A1BF8 /* ChatApiService.swift */; };
 		1E6ED9272AD6441D006A1BF8 /* 20230919093347.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1E6ED9262AD6441D006A1BF8 /* 20230919093347.wav */; };
 		1E7AD2F12C0483C600971E8B /* RSConfigiOSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7AD2F02C0483C600971E8B /* RSConfigiOSModel.swift */; };
+		1E83299B2C367261001FBF8C /* GPTReplyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E83299A2C367261001FBF8C /* GPTReplyModel.swift */; };
 		1E8C88B92C2ACCD9009310F7 /* SwiftUIChatGPTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8C88B82C2ACCD9009310F7 /* SwiftUIChatGPTView.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -26,9 +27,10 @@
 		121DDAA7A9CDCC0563379C54 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		1E64529E2AD4E8A200CCF7B8 /* LoginApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginApiService.swift; sourceTree = "<group>"; };
 		1E6510862B3D541900BF115D /* RSLoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSLoginModel.swift; sourceTree = "<group>"; };
-		1E6ED9242AD63FA8006A1BF8 /* AudioApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioApiService.swift; sourceTree = "<group>"; };
+		1E6ED9242AD63FA8006A1BF8 /* ChatApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatApiService.swift; sourceTree = "<group>"; };
 		1E6ED9262AD6441D006A1BF8 /* 20230919093347.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 20230919093347.wav; sourceTree = "<group>"; };
 		1E7AD2F02C0483C600971E8B /* RSConfigiOSModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSConfigiOSModel.swift; sourceTree = "<group>"; };
+		1E83299A2C367261001FBF8C /* GPTReplyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPTReplyModel.swift; sourceTree = "<group>"; };
 		1E8C88B82C2ACCD9009310F7 /* SwiftUIChatGPTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIChatGPTView.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* GXSwiftNetwork_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GXSwiftNetwork_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -89,7 +91,8 @@
 				1E64529E2AD4E8A200CCF7B8 /* LoginApiService.swift */,
 				1E7AD2F02C0483C600971E8B /* RSConfigiOSModel.swift */,
 				1E6510862B3D541900BF115D /* RSLoginModel.swift */,
-				1E6ED9242AD63FA8006A1BF8 /* AudioApiService.swift */,
+				1E6ED9242AD63FA8006A1BF8 /* ChatApiService.swift */,
+				1E83299A2C367261001FBF8C /* GPTReplyModel.swift */,
 				1E8C88B82C2ACCD9009310F7 /* SwiftUIChatGPTView.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -262,6 +265,7 @@
 				"${BUILT_PRODUCTS_DIR}/GXSwiftNetwork/GXSwiftNetwork.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/PTDebugView/PTDebugView.framework",
 				"${BUILT_PRODUCTS_DIR}/SmartCodable/SmartCodable.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -271,6 +275,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GXSwiftNetwork.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PTDebugView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SmartCodable.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,11 +291,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E7AD2F12C0483C600971E8B /* RSConfigiOSModel.swift in Sources */,
-				1E6ED9252AD63FA8006A1BF8 /* AudioApiService.swift in Sources */,
+				1E6ED9252AD63FA8006A1BF8 /* ChatApiService.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				1E6452A02AD4E8A200CCF7B8 /* LoginApiService.swift in Sources */,
 				1E6510872B3D541900BF115D /* RSLoginModel.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				1E83299B2C367261001FBF8C /* GPTReplyModel.swift in Sources */,
 				1E8C88B92C2ACCD9009310F7 /* SwiftUIChatGPTView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,10 +18,10 @@ struct SwiftUIChatGPTView: View {
                 "conversation_id":"10",
                 "user":"纳威",
                 "stream":1,
-                "bot_id":"7384378802530746385"
+                "bot_id":"7383946252129927176"
             ]
             
-            AudioApiService.share.requestTextReply(dataRaw: dataRaw) { data in
+            ChatApiService.share.requestTextReply(dataRaw: dataRaw) { data in
                 
             }
         }, label: {

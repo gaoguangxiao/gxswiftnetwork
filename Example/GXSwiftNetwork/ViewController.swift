@@ -60,10 +60,10 @@ class ViewController: UIViewController {
         let data = filePath.toFileUrl?.base64FileData
         dict["voiceData"] = data
         let audioJSON = dict.toJsonString ?? ""
-        AudioApiService.share.requestVoiceScope(params: audioJSON) { vsModel in
+//        AudioApiService.share.requestVoiceScope(params: audioJSON) { vsModel in
 //            print(vsModel?.data?.scope)
 //            print(vsModel?.data?.fileUrl)
-        }
+//        }
         //        RSAudioApiService.share.requestVoiceScope(params: audioJSON) { vsModel in
         //            print(vsModel?.code)
         //            print(vsModel?.sdata?.fileUrl)
@@ -103,9 +103,9 @@ class ViewController: UIViewController {
             "bot_id":"7384378802530746385"
         ] as [String : Any]
         
-        AudioApiService.share.requestTextReply(dataRaw: dataRaw) { data in
+//        AudioApiService.share.requestTextReply(dataRaw: dataRaw) { data in
             
-        }
+//        }
         
 //        let api = MSBApi(path: "/wap/api/config/ios",timeout: 5.0)
 //        self.startTimer()
