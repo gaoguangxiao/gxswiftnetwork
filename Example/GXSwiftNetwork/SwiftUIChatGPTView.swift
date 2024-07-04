@@ -17,7 +17,7 @@ struct SwiftUIChatGPTView: View {
                 "query":"今红楼梦的作者",
                 "conversation_id":"10",
                 "user":"纳威",
-                "stream":0,
+                "stream":1,
                 "bot_id":"7384378802530746385"
             ]
             
