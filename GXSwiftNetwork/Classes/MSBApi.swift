@@ -66,12 +66,15 @@ open class MSBApi: TargetType {
         requestSampleData = sampleData
         requestShowErrorMsg      = showErrorMsg
         requestShowHUD   = showHud
+        
+        log("********request requestParameters=\(requestParameters)***********")
+        log("********request sampleData=\(sampleData)***********")
     }
     
     public init(url: String?,
-                path: String,
+                path: String = "",
                 method: Moya.Method = .get,
-                headers:[String: String]?,
+                headers:[String: String]? = nil,
                 parameters: [String: Any] = [:],
                 sampleData: String = "",
                 showErrorMsg:Bool = false,
@@ -84,6 +87,9 @@ open class MSBApi: TargetType {
         requestSampleData = sampleData
         requestShowErrorMsg      = showErrorMsg
         requestShowHUD   = showHud
+        
+        log("********request requestParameters=\(requestParameters)***********")
+        log("********request sampleData=\(sampleData)***********")
     }
     //    //获取自定义json Decodable数据
     //    open func request<T: Decodable>(success: @escaping ((T) -> Void),
@@ -130,6 +136,17 @@ open class MSBApi: TargetType {
         }
         
         useProvider.request(self, self, onFailure: onFailure, onSuccess: onSuccess)
+    }
+    
+    @available(iOS 13.0, *)
+    open func netRequest<T: SmartCodable>(_ result: T.Type) async -> (T?, MSBRespApiModel?){
+        return await withUnsafeContinuation { continuation in
+            self.provider.request(self, self) { resepError in
+                continuation.resume(with:.success((nil,resepError)))
+            } onSuccess: { t in
+                continuation.resume(with: .success((t,nil)))
+            }
+        }
     }
     
     open func requestStream<T: SmartCodable>(onSuccess: @escaping (T) -> Void,
@@ -196,7 +213,9 @@ extension MSBApi {
         return [:]
     }
     
-    public var path: String { requestPath }
+    public var path: String { 
+        requestPath
+    }
     public var method: Moya.Method { requestMethod }
     public var sampleData: Data { requestSampleData.data(using: String.Encoding.utf8) ?? Data() }
     //    public var showErrorMsg: Bool { requestShowErrorMsg }
