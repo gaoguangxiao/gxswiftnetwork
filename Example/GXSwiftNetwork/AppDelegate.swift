@@ -7,8 +7,26 @@
 //
 
 import UIKit
+import SwiftUI
+import GXSwiftNetwork
 
-@UIApplicationMain
+@available(iOS 14.0, *)
+@main
+struct Lan: App {
+    var body: some Scene {
+        
+        WindowGroup {
+            SwiftUIChatGPTView()
+                .onAppear(perform: {
+                    MSBApiConfig.shared.setApiConfig(apiHost: "https://gateway-test.risekid.cn", commonHeaders: ["token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwidXVpZCI6Ilc5dUNxQmtHIn0.i3k36fWdPvxlQbb2_ZjHRb61x1zlD10tjDJr8zy7DR0MU10EFNc-AIVs2hWfimYwF_mhXFDJxiVYBPn-lJIpCA"], isAddDefaultHeaders: true)
+                    
+                })
+        }
+    }
+}
+
+
+//@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -16,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
         return true
     }
 

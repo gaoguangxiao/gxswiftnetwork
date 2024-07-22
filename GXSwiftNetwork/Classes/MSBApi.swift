@@ -149,6 +149,44 @@ open class MSBApi: TargetType {
         }
     }
     
+    @available(iOS 13.0, *)
+    open func taskRequest<T: SmartCodable>(_ Model: T.Type) async throws -> MSBBaseModel<T> where T: SmartCodable {
+        if self.requestShowHUD {
+            DispatchQueue.main.async {
+                HUD.show(.label("加载中..."))
+            }
+        }
+        
+        return try await withCheckedThrowingContinuation{ continuation in
+            self.provider.request(self) { result in
+                DispatchQueue.main.async {
+                    HUD.hide(animated: true)
+                }
+                switch result {
+                case let .success(response):
+                    do {
+                        let response = try response.filterSuccessfulStatusCodes()
+                        let jsonObject = try response.mapString()
+                        log("**************response data = \(jsonObject)**************")
+                        let model = MSBBaseModel<T>.deserialize(from: jsonObject, designatedPath: "")
+                        guard let model else {
+                            let apiError = MSBRespApiModel(code: response.statusCode, msg: "数据解析失败")
+    //                        onFailure(apiError)
+                            continuation.resume(throwing: NSError(domain: "network", code: apiError.code,userInfo: ["msg":apiError.msg ?? ""]))
+                            return
+                        }
+                        continuation.resume(returning: model)
+                    } catch let error {
+                        // HTTP statuc code error or json parsing error.
+                        continuation.resume(throwing: error)
+                    }
+                case let .failure(moyaError):
+                    continuation.resume(throwing: moyaError)
+                }
+            }
+        }
+    }
+    
     open func requestStream<T: SmartCodable>(onSuccess: @escaping (T) -> Void,
                                       onFailure: @escaping (MSBRespApiModel) -> Void,
                                       provider: MoyaProvider<MSBApi>? = nil,
