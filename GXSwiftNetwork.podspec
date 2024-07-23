@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
     s.name             = 'GXSwiftNetwork'
-    s.version          = '0.2.7'
-    s.summary          = 'feat：async和await异步响应结果，底层解析数据'
+    s.version          = '0.2.8'
+    s.summary          = 'feat：对api返回数据msg做多样解析'
     
     # This description is used to generate tags and improve search results.
     #   * Think: What does it do? Why did you write it? What is the focus?

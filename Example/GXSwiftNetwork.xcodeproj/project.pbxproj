@@ -11,6 +11,8 @@
 		1E6510872B3D541900BF115D /* RSLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6510862B3D541900BF115D /* RSLoginModel.swift */; };
 		1E6ED9252AD63FA8006A1BF8 /* ChatApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ED9242AD63FA8006A1BF8 /* ChatApiService.swift */; };
 		1E6ED9272AD6441D006A1BF8 /* 20230919093347.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1E6ED9262AD6441D006A1BF8 /* 20230919093347.wav */; };
+		1E77CCFB2C4F5A6600D27525 /* SwiftUINetErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E77CCFA2C4F5A6600D27525 /* SwiftUINetErrorView.swift */; };
+		1E77CD032C4F85BF00D27525 /* GXSwiftNetwork_ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E77CD022C4F85BF00D27525 /* GXSwiftNetwork_ExampleTests.swift */; };
 		1E7AD2F12C0483C600971E8B /* RSConfigiOSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7AD2F02C0483C600971E8B /* RSConfigiOSModel.swift */; };
 		1E83299B2C367261001FBF8C /* GPTReplyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E83299A2C367261001FBF8C /* GPTReplyModel.swift */; };
 		1E8C88B92C2ACCD9009310F7 /* SwiftUIChatGPTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8C88B82C2ACCD9009310F7 /* SwiftUIChatGPTView.swift */; };
@@ -22,6 +24,16 @@
 		DD10C44D4CB7F57AA7CE54E6 /* Pods_GXSwiftNetwork_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A429A31F2602CF2C52B26F49 /* Pods_GXSwiftNetwork_Example.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1E77CD042C4F85BF00D27525 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
+			remoteInfo = GXSwiftNetwork_Example;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0E04EF6C58EBA23539774107 /* Pods-GXSwiftNetwork_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GXSwiftNetwork_Tests.release.xcconfig"; path = "Target Support Files/Pods-GXSwiftNetwork_Tests/Pods-GXSwiftNetwork_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		121DDAA7A9CDCC0563379C54 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -29,6 +41,9 @@
 		1E6510862B3D541900BF115D /* RSLoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSLoginModel.swift; sourceTree = "<group>"; };
 		1E6ED9242AD63FA8006A1BF8 /* ChatApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatApiService.swift; sourceTree = "<group>"; };
 		1E6ED9262AD6441D006A1BF8 /* 20230919093347.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 20230919093347.wav; sourceTree = "<group>"; };
+		1E77CCFA2C4F5A6600D27525 /* SwiftUINetErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUINetErrorView.swift; sourceTree = "<group>"; };
+		1E77CD002C4F85BF00D27525 /* GXSwiftNetwork_ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GXSwiftNetwork_ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E77CD022C4F85BF00D27525 /* GXSwiftNetwork_ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXSwiftNetwork_ExampleTests.swift; sourceTree = "<group>"; };
 		1E7AD2F02C0483C600971E8B /* RSConfigiOSModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSConfigiOSModel.swift; sourceTree = "<group>"; };
 		1E83299A2C367261001FBF8C /* GPTReplyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPTReplyModel.swift; sourceTree = "<group>"; };
 		1E8C88B82C2ACCD9009310F7 /* SwiftUIChatGPTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIChatGPTView.swift; sourceTree = "<group>"; };
@@ -39,8 +54,6 @@
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		6BCC97AE896764B14B2CFDA3 /* Pods_GXSwiftNetwork_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GXSwiftNetwork_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F7AAC95D0FE162ADE5E9C27 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		828F1DF9174584E0821E4520 /* GXSwiftNetwork.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GXSwiftNetwork.podspec; path = ../GXSwiftNetwork.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -51,6 +64,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1E77CCFD2C4F85BF00D27525 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCD1AFB9204008FA782 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -62,12 +82,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E77CD012C4F85BF00D27525 /* GXSwiftNetwork_ExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				1E77CD022C4F85BF00D27525 /* GXSwiftNetwork_ExampleTests.swift */,
+			);
+			path = GXSwiftNetwork_ExampleTests;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for GXSwiftNetwork */,
-				607FACE81AFB9204008FA782 /* Tests */,
+				1E77CD012C4F85BF00D27525 /* GXSwiftNetwork_ExampleTests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				E40D01BAAF41E4F5EF45295A /* Pods */,
 				D22D2EC5B4E3217BDD20BA42 /* Frameworks */,
@@ -78,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD01AFB9204008FA782 /* GXSwiftNetwork_Example.app */,
+				1E77CD002C4F85BF00D27525 /* GXSwiftNetwork_ExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,6 +123,7 @@
 				1E6ED9242AD63FA8006A1BF8 /* ChatApiService.swift */,
 				1E83299A2C367261001FBF8C /* GPTReplyModel.swift */,
 				1E8C88B82C2ACCD9009310F7 /* SwiftUIChatGPTView.swift */,
+				1E77CCFA2C4F5A6600D27525 /* SwiftUINetErrorView.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -107,23 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				607FACD41AFB9204008FA782 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		607FACE81AFB9204008FA782 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
-				607FACE91AFB9204008FA782 /* Supporting Files */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		607FACE91AFB9204008FA782 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				607FACEA1AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -161,6 +174,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1E77CCFF2C4F85BF00D27525 /* GXSwiftNetwork_ExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E77CD062C4F85BF00D27525 /* Build configuration list for PBXNativeTarget "GXSwiftNetwork_ExampleTests" */;
+			buildPhases = (
+				1E77CCFC2C4F85BF00D27525 /* Sources */,
+				1E77CCFD2C4F85BF00D27525 /* Frameworks */,
+				1E77CCFE2C4F85BF00D27525 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1E77CD052C4F85BF00D27525 /* PBXTargetDependency */,
+			);
+			name = GXSwiftNetwork_ExampleTests;
+			productName = GXSwiftNetwork_ExampleTests;
+			productReference = 1E77CD002C4F85BF00D27525 /* GXSwiftNetwork_ExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		607FACCF1AFB9204008FA782 /* GXSwiftNetwork_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "GXSwiftNetwork_Example" */;
@@ -186,10 +217,16 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
+					1E77CCFF2C4F85BF00D27525 = {
+						CreatedOnToolsVersion = 15.4;
+						DevelopmentTeam = NK58M56UN4;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 607FACCF1AFB9204008FA782;
+					};
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = MC9Q66TLXQ;
@@ -212,11 +249,19 @@
 			projectRoot = "";
 			targets = (
 				607FACCF1AFB9204008FA782 /* GXSwiftNetwork_Example */,
+				1E77CCFF2C4F85BF00D27525 /* GXSwiftNetwork_ExampleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1E77CCFE2C4F85BF00D27525 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCE1AFB9204008FA782 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -286,12 +331,21 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1E77CCFC2C4F85BF00D27525 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E77CD032C4F85BF00D27525 /* GXSwiftNetwork_ExampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCC1AFB9204008FA782 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				1E7AD2F12C0483C600971E8B /* RSConfigiOSModel.swift in Sources */,
 				1E6ED9252AD63FA8006A1BF8 /* ChatApiService.swift in Sources */,
+				1E77CCFB2C4F5A6600D27525 /* SwiftUINetErrorView.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				1E6452A02AD4E8A200CCF7B8 /* LoginApiService.swift in Sources */,
 				1E6510872B3D541900BF115D /* RSLoginModel.swift in Sources */,
@@ -302,6 +356,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1E77CD052C4F85BF00D27525 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 607FACCF1AFB9204008FA782 /* GXSwiftNetwork_Example */;
+			targetProxy = 1E77CD042C4F85BF00D27525 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
@@ -323,6 +385,75 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1E77CD072C4F85BF00D27525 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = NK58M56UN4;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "gaoguangxiao.GXSwiftNetwork-ExampleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GXSwiftNetwork_Example.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GXSwiftNetwork_Example";
+			};
+			name = Debug;
+		};
+		1E77CD082C4F85BF00D27525 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NK58M56UN4;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "gaoguangxiao.GXSwiftNetwork-ExampleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GXSwiftNetwork_Example.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GXSwiftNetwork_Example";
+			};
+			name = Release;
+		};
 		607FACED1AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -465,6 +596,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1E77CD062C4F85BF00D27525 /* Build configuration list for PBXNativeTarget "GXSwiftNetwork_ExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E77CD072C4F85BF00D27525 /* Debug */,
+				1E77CD082C4F85BF00D27525 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "GXSwiftNetwork" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

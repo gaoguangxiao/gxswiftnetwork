@@ -27,4 +27,11 @@ public struct MSBBaseModel<T: SmartCodable>: SmartCodable {
     public var success : Bool = false
     public var msg : String?
     public var code : Int = 0 //业务端代码
+    
+}
+
+extension MSBBaseModel {
+    public static func mappingForKey() -> [SmartKeyTransformer]? {
+        [CodingKeys.msg <--- ["msg", "message"]]
+    }
 }

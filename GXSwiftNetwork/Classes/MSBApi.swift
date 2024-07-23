@@ -41,14 +41,14 @@ open class MSBApi: TargetType {
     open var mock: Bool { false }
     open var verbose: Bool { false }
     public static var requestTimeoutInterval: Float?
-    open var requestUrl: String?
-    open var requestPath: String
-    open var requestHeaders: [String: String]?
-    open var requestMethod: Moya.Method
-    open var requestSampleData: String
-    open var requestParameters: [String: Any]
-    open var requestShowErrorMsg: Bool
-    open var requestShowHUD: Bool
+    var requestUrl: String?
+    var requestPath: String
+    var requestHeaders: [String: String]?
+    var requestMethod: Moya.Method
+    var requestSampleData: String
+    var requestParameters: [String: Any]
+    var requestShowErrorMsg: Bool
+    var requestShowHUD: Bool
     
     public init(path: String,
                 method: Moya.Method = .get,
@@ -91,27 +91,6 @@ open class MSBApi: TargetType {
         log("********request requestParameters=\(requestParameters)***********")
         log("********request sampleData=\(sampleData)***********")
     }
-    //    //获取自定义json Decodable数据
-    //    open func request<T: Decodable>(success: @escaping ((T) -> Void),
-    //                                    failure: @escaping ((MSBApiError) -> Void) = defaultFailureHandle,
-    //                                    provider: MoyaProvider<MSBApi>? = nil,
-    //                                    atKeyPath: String? = nil,
-    //                                    fullResponse: ((Moya.Response) -> Void)? = nil) {
-    //        var useProvider = self.provider
-    //        if let paramProvider = provider {
-    //            useProvider = paramProvider
-    //        }
-    //        let logPosition = requestPath
-    //        useProvider.request(self, onFailure: { error in
-    //            if self.reportError(error: error) {
-    //                MSBApiConfig.shared.reportBuglyAbility?(error.status, ["网络错误":error.msg ?? "未知错误"])
-    //                log("❌ 【API】status:\(error.status) msg:\(error.msg ?? "") path: \(logPosition)")
-    //            }
-    //            failure(error)
-    //        }, onSuccess: { result in
-    //            success(result)
-    //        }, atKeyPath: atKeyPath, fullResponse: fullResponse)
-    //    }
     
     /// 获取自定义json model数据
     open func request<T: MSBApiModel>(onSuccess: @escaping (T) -> Void,
@@ -137,26 +116,18 @@ open class MSBApi: TargetType {
         
         useProvider.request(self, self, onFailure: onFailure, onSuccess: onSuccess)
     }
+}
+
+//MARK:
+extension MSBApi {
     
     @available(iOS 13.0, *)
-    open func netRequest<T: SmartCodable>(_ result: T.Type) async -> (T?, MSBRespApiModel?){
-        return await withUnsafeContinuation { continuation in
-            self.provider.request(self, self) { resepError in
-                continuation.resume(with:.success((nil,resepError)))
-            } onSuccess: { t in
-                continuation.resume(with: .success((t,nil)))
-            }
-        }
-    }
-    
-    @available(iOS 13.0, *)
-    open func taskRequest<T: SmartCodable>(_ Model: T.Type) async throws -> MSBBaseModel<T> where T: SmartCodable {
+    public func request<T: SmartCodable>(_ Model: T.Type) async throws -> T where T: SmartCodable {
         if self.requestShowHUD {
             DispatchQueue.main.async {
                 HUD.show(.label("加载中..."))
             }
         }
-        
         return try await withCheckedThrowingContinuation{ continuation in
             self.provider.request(self) { result in
                 DispatchQueue.main.async {
@@ -165,40 +136,46 @@ open class MSBApi: TargetType {
                 switch result {
                 case let .success(response):
                     do {
-                        let response = try response.filterSuccessfulStatusCodes()
+                        let response = try response.filter(statusCodes: 200...499)
                         let jsonObject = try response.mapString()
                         log("**************response data = \(jsonObject)**************")
-                        let model = MSBBaseModel<T>.deserialize(from: jsonObject, designatedPath: "")
+                        let model = Model.deserialize(from: jsonObject, designatedPath: "")
                         guard let model else {
-                            let apiError = MSBRespApiModel(code: response.statusCode, msg: "数据解析失败")
-    //                        onFailure(apiError)
-                            continuation.resume(throwing: NSError(domain: "network", code: apiError.code,userInfo: ["msg":apiError.msg ?? ""]))
+                            continuation.resume(throwing: NSError(domain: "network", code: response.statusCode,userInfo: ["msg": "数据解析失败"]))
                             return
                         }
                         continuation.resume(returning: model)
                     } catch let error {
                         // HTTP statuc code error or json parsing error.
+                        if self.requestShowErrorMsg {
+                            HUD.flash(.label(error.localizedDescription), delay: 1.5)
+                        }
                         continuation.resume(throwing: error)
                     }
-                case let .failure(moyaError):
-                    continuation.resume(throwing: moyaError)
+                case let .failure(error):
+                    if self.requestShowErrorMsg {
+                        HUD.flash(.label(error.localizedDescription), delay: 1.5)
+                    }
+                    continuation.resume(throwing: error)
                 }
             }
         }
     }
-    
-    open func requestStream<T: SmartCodable>(onSuccess: @escaping (T) -> Void,
-                                      onFailure: @escaping (MSBRespApiModel) -> Void,
-                                      provider: MoyaProvider<MSBApi>? = nil,
-                                      fullResponse: ((Moya.Response) -> Void)? = nil) {
-        var useProvider = self.provider
-        if let paramProvider = provider {
-            useProvider = paramProvider
+    @available(iOS 13.0, *)
+    public func dataTask<T: SmartCodable>(with model: T.Type) async throws -> MSBBaseModel<T> where T: SmartCodable {
+        do {
+            let model = try await self.request(MSBBaseModel<T>.self)
+            if self.requestShowErrorMsg, let msg = model.msg, msg.count > 0 {
+                await MainActor.run { HUD.flash(.label(msg), delay: 2.5) }
+            }
+            return model
+        } catch {
+            if self.requestShowErrorMsg {
+                await MainActor.run { HUD.flash(.label(error.localizedDescription), delay: 2.5) }
+            }
+            throw error
         }
-//        useProvider.s
-        useProvider.requestStream(self, self, onFailure: onFailure, onSuccess: onSuccess)
     }
-    
 }
 
 // MARK: ==== Closure
@@ -304,7 +281,7 @@ extension MSBApi {
         showApiError(err)
     }
     
-    open class func showApiError(_ error: MSBApiError) {
+    public class func showApiError(_ error: MSBApiError) {
         MSBApiConfig.shared.showHUDAbility?(error)
     }
     
@@ -313,7 +290,7 @@ extension MSBApi {
         MSBApi.defaultFailureHandle(err)
     }
     
-    open func reportError(error: MSBApiError) -> Bool { true }
+    public func reportError(error: MSBApiError) -> Bool { true }
     
 }
 

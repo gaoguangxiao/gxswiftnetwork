@@ -57,7 +57,7 @@ struct SwiftUIChatGPTView: View {
                         let api = certificateCoze()
                         do {
                             
-                            let reponseResult = try await api.taskRequest(CozeResponseModel.self)
+                            let reponseResult = try await api.dataTask(with:CozeResponseModel.self)
                             if let token = reponseResult.data?.token {
                                 print("token: \(token)")
                             }
