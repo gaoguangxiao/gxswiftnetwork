@@ -24,9 +24,8 @@ import SmartCodable
  }
  
  - 调用
- exampleApi(id: "\(workID)").request(success: { (response: exampleApi.resultModel) in
- log("成功结果: \(response.checkResult)")
- })
+ let api = CerCozeApi()
+ let reponseResult = try await api.dataTask(with:CozeResponseModel.self)
  - 或
  exampleApi(id: "\(workID)").request(success: { (response: exampleApi.resultModel) in
  log("成功结果: \(response.checkResult)")
@@ -191,6 +190,7 @@ extension MSBApi {
             } else {
                 request.timeoutInterval =  TimeInterval(MSBApiConfig.shared.timeoutInterval)
             }
+            request.cachePolicy = .reloadRevalidatingCacheData //如果本地缓存有效时，则不下载。否则，从新下载数据。
             done(.success(request))
             
         } catch  {
@@ -248,18 +248,33 @@ extension MSBApi {
     }
 }
 
+protocol CachePolicyGettable {
+    var cachePolicy: URLRequest.CachePolicy {get}
+}
+
+//extension MSBApi: CachePolicyGettable {
+//    var cachePolicy: URLRequest.CachePolicy {
+//        switch self {
+//        case .:
+//            
+//        default:
+//            <#code#>
+//        }
+//    }
+//}
+
 // MARK: =================== providers
 extension MSBApi {
     
     static let providerLogPlugin = NetworkLoggerPlugin()
 //    static let streamProvider = NetworkStreamProvider()
-//    static let providerActivityPlugin = NetworkActivityPlugin(networkActivityClosure: <#T##NetworkActivityClosure#>)
+//    static let providerActivityPlugin = NetworkActivityPlugin(networkActivityClosure: T##NetworkActivityClosure)
     static let silenceProvider = MoyaProvider<MSBApi>(plugins: [])
     static let verboseProvider = MoyaProvider<MSBApi>(plugins: [providerLogPlugin])
     static let mockProvider = MoyaProvider<MSBApi>(stubClosure: MoyaProvider.immediatelyStub)
     // 扩展一个可以设置超时的请求
     fileprivate static let outTimeProvider = MoyaProvider<MSBApi>(requestClosure: MSBApi.requestClosure,plugins: [])
-    
+//    static let cachePlugin = CachePolicyPlugin()
     var provider: MoyaProvider<MSBApi> {
         if MSBApiConfig.shared.getIsDebug?() != true {
             return MSBApi.silenceProvider

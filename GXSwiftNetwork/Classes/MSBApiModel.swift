@@ -28,6 +28,12 @@ public struct MSBBaseModel<T: SmartCodable>: SmartCodable {
     public var msg : String?
     public var code : Int = 0 //业务端代码
     
+    public enum CodingKeys: CodingKey {
+        case data
+        case success
+        case msg
+        case code
+    }
 }
 
 extension MSBBaseModel {

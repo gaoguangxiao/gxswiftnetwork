@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
     s.name             = 'GXSwiftNetwork'
-    s.version          = '0.2.8'
-    s.summary          = 'feat：对api返回数据msg做多样解析'
+    s.version          = '0.2.9'
+    s.summary          = 'feat：响应数据协议，调用方继承MSBAPi，实现此协议'
     
     # This description is used to generate tags and improve search results.
     #   * Think: What does it do? Why did you write it? What is the focus?

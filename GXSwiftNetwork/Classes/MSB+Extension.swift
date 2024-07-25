@@ -19,6 +19,15 @@ internal func log(_ msg: Any, _ file: String = #file, _ fn: String = #function, 
     print("「 DEBUG模式下打印日志： 」****** \((file as NSString).lastPathComponent) >> \(line) >> \(fn) >> \(msg) ******")
     #endif
 }
+
+//extension MSBApi: MSBDataResponse {
+//    public typealias Model = <#type#>
+//    
+//    public static func model() async throws -> Model {
+//        let api = MSBApi(path: <#String#>)
+//    }
+//}
+
 //
 //public protocol MSBRelativeModel {
 //   

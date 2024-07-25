@@ -10,25 +10,13 @@ import SwiftUI
 import GXSwiftNetwork
 import SmartCodable
 
-//class CozeBaseModel: MSBApiModel {
-    
-//    var code
-//}
-struct CozeResponseModel: SmartCodable {
-    var botId: String?
-    var token: String?
-    var url: String?
-}
-
-
-class certificateCoze: MSBApi {
-    
-    init() {
-        super.init(path: "/wap/api/certificate/coze")
-    }
-}
 
 struct SwiftUIChatGPTView: View {
+    
+    @State var startConfigChatTime = 0.0
+    
+    @State var timeInterval = 0.0
+    
     var body: some View {
                 
         Form {
@@ -53,22 +41,22 @@ struct SwiftUIChatGPTView: View {
             Section {
                 Button(action: {
                     Task {
-                        //获取coze
-                        let api = certificateCoze()
                         do {
-                            
-                            let reponseResult = try await api.dataTask(with:CozeResponseModel.self)
-                            if let token = reponseResult.data?.token {
+                            self.startConfigChatTime = CFAbsoluteTimeGetCurrent()
+                            let reponseResult = try await CerCozeApi.response()
+                            if let token = reponseResult.token {
                                 print("token: \(token)")
+                                let acquireResultTime = CFAbsoluteTimeGetCurrent()
+                                timeInterval = (acquireResultTime - self.startConfigChatTime) * 1000
+                                print("timeInterval: \(timeInterval)")
                             }
-                            
                         } catch {
                             print("catch-:\(error)")
                         }
                         
                     }
                 }, label: {
-                    Text("获取Coze配置")
+                    Text("获取Coze配置:\(timeInterval)毫秒")
                 })
             }
         }

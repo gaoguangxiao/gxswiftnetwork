@@ -13,6 +13,7 @@
 		1E6ED9272AD6441D006A1BF8 /* 20230919093347.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1E6ED9262AD6441D006A1BF8 /* 20230919093347.wav */; };
 		1E77CCFB2C4F5A6600D27525 /* SwiftUINetErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E77CCFA2C4F5A6600D27525 /* SwiftUINetErrorView.swift */; };
 		1E77CD032C4F85BF00D27525 /* GXSwiftNetwork_ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E77CD022C4F85BF00D27525 /* GXSwiftNetwork_ExampleTests.swift */; };
+		1E78407F2C50DF21000D36AE /* CerCozeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E78407E2C50DF21000D36AE /* CerCozeApi.swift */; };
 		1E7AD2F12C0483C600971E8B /* RSConfigiOSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7AD2F02C0483C600971E8B /* RSConfigiOSModel.swift */; };
 		1E83299B2C367261001FBF8C /* GPTReplyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E83299A2C367261001FBF8C /* GPTReplyModel.swift */; };
 		1E8C88B92C2ACCD9009310F7 /* SwiftUIChatGPTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8C88B82C2ACCD9009310F7 /* SwiftUIChatGPTView.swift */; };
@@ -44,6 +45,7 @@
 		1E77CCFA2C4F5A6600D27525 /* SwiftUINetErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUINetErrorView.swift; sourceTree = "<group>"; };
 		1E77CD002C4F85BF00D27525 /* GXSwiftNetwork_ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GXSwiftNetwork_ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E77CD022C4F85BF00D27525 /* GXSwiftNetwork_ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXSwiftNetwork_ExampleTests.swift; sourceTree = "<group>"; };
+		1E78407E2C50DF21000D36AE /* CerCozeApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CerCozeApi.swift; sourceTree = "<group>"; };
 		1E7AD2F02C0483C600971E8B /* RSConfigiOSModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSConfigiOSModel.swift; sourceTree = "<group>"; };
 		1E83299A2C367261001FBF8C /* GPTReplyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPTReplyModel.swift; sourceTree = "<group>"; };
 		1E8C88B82C2ACCD9009310F7 /* SwiftUIChatGPTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIChatGPTView.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				1E83299A2C367261001FBF8C /* GPTReplyModel.swift */,
 				1E8C88B82C2ACCD9009310F7 /* SwiftUIChatGPTView.swift */,
 				1E77CCFA2C4F5A6600D27525 /* SwiftUINetErrorView.swift */,
+				1E78407E2C50DF21000D36AE /* CerCozeApi.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -345,6 +348,7 @@
 			files = (
 				1E7AD2F12C0483C600971E8B /* RSConfigiOSModel.swift in Sources */,
 				1E6ED9252AD63FA8006A1BF8 /* ChatApiService.swift in Sources */,
+				1E78407F2C50DF21000D36AE /* CerCozeApi.swift in Sources */,
 				1E77CCFB2C4F5A6600D27525 /* SwiftUINetErrorView.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				1E6452A02AD4E8A200CCF7B8 /* LoginApiService.swift in Sources */,
