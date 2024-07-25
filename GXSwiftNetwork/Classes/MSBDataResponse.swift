@@ -1,5 +1,5 @@
 //
-//  MSBProtocol.swift
+//  MSBDataResponse.swift
 //  GXSwiftNetwork
 //
 //  Created by 高广校 on 2024/7/24.

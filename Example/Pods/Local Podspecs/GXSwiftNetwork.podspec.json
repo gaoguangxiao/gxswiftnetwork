@@ -18,6 +18,7 @@
   "platforms": {
     "ios": "11.0"
   },
+  "swift_versions": "5.0",
   "source_files": "GXSwiftNetwork/Classes/**/*",
   "dependencies": {
     "Moya": [
@@ -29,5 +30,6 @@
     "PKHUD": [
 
     ]
-  }
+  },
+  "swift_version": "5.0"
 }
