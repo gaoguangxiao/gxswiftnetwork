@@ -9,7 +9,7 @@ target 'GXSwiftNetwork_Example' do
   
   pod 'GXSwiftNetwork', :path => '../'
   pod 'GGXSwiftExtension'
-  pod 'PTDebugView'
+#  pod 'PTDebugView'
 #  target 'GXSwiftNetwork_Tests' do
 #    inherit! :search_paths
 

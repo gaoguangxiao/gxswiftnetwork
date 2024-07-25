@@ -16,7 +16,7 @@ struct Lan: App {
     var body: some Scene {
         
         WindowGroup {
-            SwiftUIChatGPTView()
+            SwiftUINetErrorView()
                 .onAppear(perform: {
                     MSBApiConfig.shared.setApiConfig(apiHost: "https://gateway-test.risekid.cn", commonHeaders: ["token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwidXVpZCI6Ilc5dUNxQmtHIn0.i3k36fWdPvxlQbb2_ZjHRb61x1zlD10tjDJr8zy7DR0MU10EFNc-AIVs2hWfimYwF_mhXFDJxiVYBPn-lJIpCA"], isAddDefaultHeaders: true)
                     
