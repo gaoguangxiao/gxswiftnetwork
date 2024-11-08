@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (5.9.1)
   - GGXSwiftExtension (0.6.4)
-  - GXSwiftNetwork (0.3.1):
+  - GXSwiftNetwork (0.3.2):
     - Moya
     - PKHUD
     - SmartCodable
@@ -31,11 +31,11 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
   GGXSwiftExtension: 6909d3717a0888980b6fac062973c0beecd08da2
-  GXSwiftNetwork: fb84d4270e8d40b5aa8b2bcacbeb90fba6c6a667
+  GXSwiftNetwork: 3646e4c3f4420a04988c361d2cf6a5bd909055e0
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   SmartCodable: 092fd8c698dc958fc95e1d93baf3b497f9ab1715
 
-PODFILE CHECKSUM: f4e871d0c53511d86044f34a8da44792a0672abd
+PODFILE CHECKSUM: 9c483bff0413785a1cc2b1cebc9cbf89579435ae
 
 COCOAPODS: 1.16.1
