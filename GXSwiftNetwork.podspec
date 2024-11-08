@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
     s.name             = 'GXSwiftNetwork'
-    s.version          = '0.3.1'
-    s.summary          = 'feat：增加参数请求'
+    s.version          = '0.3.2'
+    s.summary          = 'feat：无修改，仅适配Xcode16'
     
     # This description is used to generate tags and improve search results.
     #   * Think: What does it do? Why did you write it? What is the focus?
