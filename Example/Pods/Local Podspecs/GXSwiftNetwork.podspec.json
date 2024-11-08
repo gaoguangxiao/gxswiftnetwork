@@ -1,7 +1,7 @@
 {
   "name": "GXSwiftNetwork",
-  "version": "0.2.9",
-  "summary": "feat：响应数据协议，调用方继承MSBAPi，实现此协议",
+  "version": "0.3.1",
+  "summary": "feat：增加参数请求",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/gaoguangxiao",
   "license": {
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/gaoguangxiao/gxswiftnetwork.git",
-    "tag": "0.2.9"
+    "tag": "0.3.1"
   },
   "platforms": {
     "ios": "11.0"

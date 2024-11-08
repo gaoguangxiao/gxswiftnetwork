@@ -9,10 +9,14 @@ target 'GXSwiftNetwork_Example' do
   
   pod 'GXSwiftNetwork', :path => '../'
   pod 'GGXSwiftExtension'
-#  pod 'PTDebugView'
-#  target 'GXSwiftNetwork_Tests' do
-#    inherit! :search_paths
+  
+end
 
-#    pod 'FBSnapshotTestCase' , '~> 2.1.4'
-#  end
+# 解决`libarclite`库Xcode14.3丢失问题
+post_install do | installer |
+  installer.pods_project.targets.each do | target |
+    target.build_configurations.each do | config |
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
+    end
+  end
 end
