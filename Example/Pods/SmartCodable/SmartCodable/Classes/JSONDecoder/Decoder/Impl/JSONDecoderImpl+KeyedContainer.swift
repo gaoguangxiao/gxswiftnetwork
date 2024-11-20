@@ -2,7 +2,7 @@
 //  JSONDecoderImpl+KeyedContainer.swift
 //  SmartCodable
 //
-//  Created by qixin on 2024/5/17.
+//  Created by Mccc on 2024/5/17.
 //
 
 import Foundation
@@ -182,7 +182,7 @@ extension JSONDecoderImpl.KeyedContainer {
         guard let value = try? getValue(forKey: key) else {
             return try forceDecode(forKey: key)
         }
-            
+        
         if let decoded = impl.cache.tranform(value: value, for: key) as? String {
             return decoded
         }
@@ -288,11 +288,19 @@ extension JSONDecoderImpl.KeyedContainer {
             return try decode(CGFloat.self, forKey: key) as! T
         }
         
+        // 如果值可以被成功获取
         if let value = try? getValue(forKey: key) {
-            if let decoded = impl.cache.tranform(value: value, for: key) as? T {
-                return decoded
+            if let decoded = impl.cache.tranform(value: value, for: key) {
+                if let tTypeValue = decoded as? T {
+                    return tTypeValue
+                } else if let publishedType = T.self as? any SmartPublishedProtocol.Type,
+                          let publishedValue = publishedType.createInstance(with: decoded) as? T {
+                    // // 检查 SmartPublished 包装器类型
+                    return publishedValue
+                }
             }
         }
+        
         
         
         if let type = type as? FlatType.Type {
@@ -318,7 +326,9 @@ extension JSONDecoderImpl.KeyedContainer {
 extension JSONDecoderImpl.KeyedContainer {
     
     func decodeIfPresent(_ type: Bool.Type, forKey key: K) throws -> Bool? {
-        guard let value = try? getValue(forKey: key) else { return nil }
+        guard let value = try? getValue(forKey: key) else {
+            return optionalDecode(forKey: key)
+        }
         
         if let decoded = impl.cache.tranform(value: value, for: key) as? Bool {
             return decoded
@@ -331,7 +341,9 @@ extension JSONDecoderImpl.KeyedContainer {
     }
     
     func decodeIfPresent(_ type: String.Type, forKey key: K) throws -> String? {
-        guard let value = try? getValue(forKey: key) else { return nil }
+        guard let value = try? getValue(forKey: key) else {
+            return optionalDecode(forKey: key)
+        }
         
         if let decoded = impl.cache.tranform(value: value, for: key) as? String {
             return decoded
@@ -459,7 +471,7 @@ extension JSONDecoderImpl.KeyedContainer {
         if let decoded = try? newDecoder.unwrap(as: type) {
             return didFinishMapping(decoded)
         }
-
+        
         if let decoded: T = optionalDecode(forKey: key) {
             return didFinishMapping(decoded)
         } else {

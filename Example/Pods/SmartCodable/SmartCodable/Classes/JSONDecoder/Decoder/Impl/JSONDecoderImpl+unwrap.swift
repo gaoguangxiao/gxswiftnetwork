@@ -2,7 +2,7 @@
 //  JSONDecoderImpl+unwrap.swift
 //  SmartCodable
 //
-//  Created by qixin on 2024/5/21.
+//  Created by Mccc on 2024/5/21.
 //
 
 import Foundation
@@ -196,9 +196,6 @@ extension JSONDecoderImpl {
         }
         
         switch self.options.dataDecodingStrategy {
-        case .deferredToData:
-            return try Data(from: self)
-            
         case .base64:
             let container = SingleValueContainer(impl: self, codingPath: self.codingPath, json: self.json)
             let string = try container.decode(String.self)
@@ -208,11 +205,6 @@ extension JSONDecoderImpl {
             }
             
             return data
-            
-        case .custom(let closure):
-            return try closure(self)
-        @unknown default:
-            throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: self.codingPath, debugDescription: "Encountered Data is not valid , unknown anomaly"))
         }
     }
     
