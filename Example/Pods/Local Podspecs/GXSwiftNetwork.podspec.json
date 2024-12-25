@@ -1,7 +1,7 @@
 {
   "name": "GXSwiftNetwork",
-  "version": "0.3.4",
-  "summary": "feat：debug打印整理",
+  "version": "0.4.0",
+  "summary": "feat：对`PKHUD`的升级改造，使之适配iOS9以上",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/gaoguangxiao",
   "license": {
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/gaoguangxiao/gxswiftnetwork.git",
-    "tag": "0.3.4"
+    "tag": "0.4.0"
   },
   "platforms": {
     "ios": "11.0"
@@ -27,7 +27,7 @@
     "SmartCodable": [
 
     ],
-    "PKHUD": [
+    "GXPKHUD": [
 
     ]
   },

@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import PKHUD
+import GXPKHUD
 import SmartCodable
 import GXSwiftNetwork
 

@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
     s.name             = 'GXSwiftNetwork'
-    s.version          = '0.4.0'
-    s.summary          = 'feat：对`PKHUD`的升级改造，使之适配iOS11以上'
+    s.version          = '0.4.1'
+    s.summary          = 'feat：对`PKHUD`的升级改造，使之适配iOS9以上'
     
     # This description is used to generate tags and improve search results.
     #   * Think: What does it do? Why did you write it? What is the focus?
@@ -41,6 +41,6 @@ Pod::Spec.new do |s|
     # s.frameworks = 'UIKit', 'MapKit'
     s.dependency 'Moya'
     s.dependency 'SmartCodable'
-    s.dependency 'PKHUD'
+    s.dependency 'GXPKHUD'
     
 end
