@@ -1,5 +1,5 @@
-source 'https://gitee.com/gtools/mxs.git'
 source 'https://github.com/CocoaPods/Specs.git'
+source 'https://gitee.com/china_ios/cocoapods-specs.git'
 
 platform :ios, '11.0'
 
@@ -10,6 +10,12 @@ target 'GXSwiftNetwork_Example' do
   pod 'GXSwiftNetwork', :path => '../'
   pod 'GGXSwiftExtension'
   
+# 本地
+#  pod 'PKHUD', :path => '~/Desktop/SourceTree/PKHUD'
+# 远程，只要上面Source源包含此组件，默认优先查找，不添加`git`路径
+#  pod 'PKHUD', :git => "https://gitee.com/china_ios/PKHUD.git"
+
+  #  pod 'PKHUD', '6.0.0'
 end
 
 # 解决`libarclite`库Xcode14.3丢失问题

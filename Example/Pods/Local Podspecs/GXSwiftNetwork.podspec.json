@@ -1,7 +1,7 @@
 {
   "name": "GXSwiftNetwork",
-  "version": "0.3.3",
-  "summary": "feat：无修改，仅适配Xcode16",
+  "version": "0.3.4",
+  "summary": "feat：debug打印整理",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/gaoguangxiao",
   "license": {
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/gaoguangxiao/gxswiftnetwork.git",
-    "tag": "0.3.3"
+    "tag": "0.3.4"
   },
   "platforms": {
     "ios": "11.0"
