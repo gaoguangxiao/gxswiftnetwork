@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }else {
                     header["device-type"] = "iPhone"
                 }
-                header["token"] = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwidXVpZCI6IjRVektyQ29nIn0.sI4QxF8k0IN4ByjHYGPv8D0-iCfUBAMTsg1KC9GvWwxPjvtQETgBcMX95vTMWyxxUPcac1F2nSKJZrG3DwmF5w"
+//               /* header["token"] = "Bearer eyJhbGciO*/iJIUzUxMiJ9.eyJzdWIiOiIxIiwidXVpZCI6IjRVektyQ29nIn0.sI4QxF8k0IN4ByjHYGPv8D0-iCfUBAMTsg1KC9GvWwxPjvtQETgBcMX95vTMWyxxUPcac1F2nSKJZrG3DwmF5w"
                 MSBApiConfig.shared.setApiConfig(apiHost: "https://gateway-test.risekid.cn",
                                                  commonHeaders: header,
                                                  isAddDefaultHeaders: true)

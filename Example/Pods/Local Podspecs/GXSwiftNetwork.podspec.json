@@ -1,6 +1,6 @@
 {
   "name": "GXSwiftNetwork",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "summary": "feat：对`PKHUD`的升级改造，使之适配iOS9以上",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/gaoguangxiao",
@@ -13,23 +13,26 @@
   },
   "source": {
     "git": "https://github.com/gaoguangxiao/gxswiftnetwork.git",
-    "tag": "0.4.0"
+    "tag": "0.4.1"
   },
   "platforms": {
     "ios": "11.0"
   },
   "swift_versions": "5.0",
-  "source_files": "GXSwiftNetwork/Classes/**/*",
   "dependencies": {
-    "Moya": [
-
-    ],
-    "SmartCodable": [
-
-    ],
-    "GXPKHUD": [
-
-    ]
+    "Moya": [],
+    "SmartCodable": [],
+    "GXPKHUD": []
   },
+  "subspecs": [
+    {
+      "name": "MSB",
+      "source_files": "GXSwiftNetwork/Classes/**/*"
+    },
+    {
+      "name": "EvenSource",
+      "source_files": "GXSwiftNetwork/Classes/EventSource/**/*"
+    }
+  ],
   "swift_version": "5.0"
 }

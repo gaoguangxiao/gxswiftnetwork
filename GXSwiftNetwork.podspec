@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
     s.name             = 'GXSwiftNetwork'
-    s.version          = '0.4.1'
-    s.summary          = 'feat：对`PKHUD`的升级改造，使之适配iOS9以上'
+    s.version          = '0.5.0'
+    s.summary          = 'feat：对基于苹果和Alamer的封装改善'
     
     # This description is used to generate tags and improve search results.
     #   * Think: What does it do? Why did you write it? What is the focus?
@@ -31,12 +31,16 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = '11.0'
     s.swift_versions = '5.0'
     
-    s.source_files = 'GXSwiftNetwork/Classes/**/*'
+    # 基于Alamare网络请求 模块
+    s.subspec 'MSB' do |e|
+        e.source_files = 'GXSwiftNetwork/Classes/**/*'
+    end
     
-    # s.resource_bundles = {
-    #   'GXSwiftNetwork' => ['GXSwiftNetwork/Assets/*.png']
-    # }
-    
+    # 基于苹果网络请求 模块
+    s.subspec 'EvenSource' do |e|
+        e.source_files = 'GXSwiftNetwork/Classes/EventSource/**/*'
+    end
+          
     # s.public_header_files = 'Pod/Classes/**/*.h'
     # s.frameworks = 'UIKit', 'MapKit'
     s.dependency 'Moya'

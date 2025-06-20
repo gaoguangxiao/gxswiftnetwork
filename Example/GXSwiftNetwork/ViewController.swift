@@ -72,17 +72,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func 代发请求(_ sender: Any) {
-        let url = "https://qa.risekid.cn/buddy/mojing.json"
+//        let url = "https://qa.risekid.cn/buddy/mojing.json"
         
         //图片
-        //        let api = MSBApi(url: url,
-        //                         path: "",
-        //                         method: .get)
-        //        api.request { result in
-        //            print(result)
-        //        } onFailure: { error in
-        //            print(error)
-        //        }
+        let api = MSBApi(url: "https://gateway-test.risekid.cn/assessment/api/material/video?code=K7fR2sLq9A",
+                         path: "",
+                         method: .get)
+        api.request { result in
+            print(result)
+        } onFailure: { error in
+            print(error)
+        }
     }
     
     @IBAction func 配置(_ sender: Any) {

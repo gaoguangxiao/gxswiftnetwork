@@ -8,7 +8,7 @@
 
 import SwiftUI
 import GXSwiftNetwork
-
+import SmartCodable
 public class SensitiveWordApi: MSBApi, MSBDataResponse {
     
     public typealias Model = MSBApiModel
@@ -23,18 +23,29 @@ public class SensitiveWordApi: MSBApi, MSBDataResponse {
 }
 
 
+
+
 struct WordSwiftUIView: View {
     
-    let api = SensitiveWordApi(["content":"李鹏可以的"])
+//    let api = SensitiveWordApi(["content":"李鹏可以的"])
     
     var body: some View {
         Button(action: {
             Task {
-                do {
-                    try await api.response(parameters:["content":"李鹏可以的"])
-                } catch let nsError as NSError {
-                    print(nsError.localizedDescription)
-                }
+//                do {
+//                    try await api.response(parameters:["content":"李鹏可以的"])
+//                } catch let nsError as NSError {
+//                    print(nsError.localizedDescription)
+//                }
+                
+                let api = try await RSConfigAPi.response(url: "https://gateway-test.risekid.cn/assessment/api/material/video?code=K7fR2sLq9A")
+                print(api.data?.cover)
+//                let api = MSBApi(url: "https://gateway-test.risekid.cn/assessment/api/material/video?code=K7fR2sLq9A")
+//                api.request { (result:TBData) in
+                print(api.data?.cover)
+//                } onFailure: { error in
+//                    print(error)
+//                }
             }
         }, label: {
             Text("关键词过滤")

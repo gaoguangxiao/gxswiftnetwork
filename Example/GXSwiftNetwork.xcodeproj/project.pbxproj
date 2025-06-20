@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E63517D2E016CC300F06703 /* RSConfigAPi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E63517C2E016CC300F06703 /* RSConfigAPi.swift */; };
 		1E6452A02AD4E8A200CCF7B8 /* LoginApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E64529E2AD4E8A200CCF7B8 /* LoginApiService.swift */; };
 		1E6510872B3D541900BF115D /* RSLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6510862B3D541900BF115D /* RSLoginModel.swift */; };
 		1E6ED9272AD6441D006A1BF8 /* 20230919093347.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1E6ED9262AD6441D006A1BF8 /* 20230919093347.wav */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		0E04EF6C58EBA23539774107 /* Pods-GXSwiftNetwork_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GXSwiftNetwork_Tests.release.xcconfig"; path = "Target Support Files/Pods-GXSwiftNetwork_Tests/Pods-GXSwiftNetwork_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		121DDAA7A9CDCC0563379C54 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		1E63517C2E016CC300F06703 /* RSConfigAPi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSConfigAPi.swift; sourceTree = "<group>"; };
 		1E64529E2AD4E8A200CCF7B8 /* LoginApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginApiService.swift; sourceTree = "<group>"; };
 		1E6510862B3D541900BF115D /* RSLoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSLoginModel.swift; sourceTree = "<group>"; };
 		1E6ED9262AD6441D006A1BF8 /* 20230919093347.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 20230919093347.wav; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				1E77CCFA2C4F5A6600D27525 /* SwiftUINetErrorView.swift */,
 				1E8038752CDC5CDD00C62B4B /* WordSwiftUIView.swift */,
 				1E78407E2C50DF21000D36AE /* CerCozeApi.swift */,
+				1E63517C2E016CC300F06703 /* RSConfigAPi.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -342,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E7AD2F12C0483C600971E8B /* RSConfigiOSModel.swift in Sources */,
+				1E63517D2E016CC300F06703 /* RSConfigAPi.swift in Sources */,
 				1E78407F2C50DF21000D36AE /* CerCozeApi.swift in Sources */,
 				1E77CCFB2C4F5A6600D27525 /* SwiftUINetErrorView.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
