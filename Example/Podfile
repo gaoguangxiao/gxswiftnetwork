@@ -3,7 +3,7 @@ source 'https://gitee.com/china_ios/cocoapods-specs.git'
 
 #--sources=https://gitee.com/china_ios/cocoapods-specs.git,https://github.com/CocoaPods/Specs.git
 
-platform :ios, '11.0'
+platform :ios, '13.0'
 
 target 'GXSwiftNetwork_Example' do
   

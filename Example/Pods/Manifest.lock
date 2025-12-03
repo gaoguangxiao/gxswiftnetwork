@@ -1,18 +1,18 @@
 PODS:
   - Alamofire (5.10.2)
-  - GGXSwiftExtension (0.7.4)
+  - GGXSwiftExtension (0.9.2)
   - GXPKHUD (1.0.0)
-  - GXSwiftNetwork (0.4.1):
+  - GXSwiftNetwork (0.5.0):
     - GXPKHUD
-    - GXSwiftNetwork/EvenSource (= 0.4.1)
-    - GXSwiftNetwork/MSB (= 0.4.1)
+    - GXSwiftNetwork/EvenSource (= 0.5.0)
+    - GXSwiftNetwork/MSB (= 0.5.0)
     - Moya
     - SmartCodable
-  - GXSwiftNetwork/EvenSource (0.4.1):
+  - GXSwiftNetwork/EvenSource (0.5.0):
     - GXPKHUD
     - Moya
     - SmartCodable
-  - GXSwiftNetwork/MSB (0.4.1):
+  - GXSwiftNetwork/MSB (0.5.0):
     - GXPKHUD
     - Moya
     - SmartCodable
@@ -20,7 +20,9 @@ PODS:
     - Moya/Core (= 15.0.0)
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
-  - SmartCodable (4.3.2)
+  - SmartCodable (5.1.7):
+    - SmartCodable/Core (= 5.1.7)
+  - SmartCodable/Core (5.1.7)
 
 DEPENDENCIES:
   - GGXSwiftExtension
@@ -40,12 +42,12 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
-  GGXSwiftExtension: 438330b80997b69e09968004588ce41d8ff36583
+  GGXSwiftExtension: 477052730cc32d33b47ba50decdc638752641e7f
   GXPKHUD: 3db210320877a88b0c9331e6b4045ba5c07ec2ea
-  GXSwiftNetwork: 08bff0a6dc921075e95dabfcfa4270eb6ecc339c
+  GXSwiftNetwork: 578a30d85ffc3cf06dc02cf6c6acbc969366fa48
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
-  SmartCodable: 88fbf3d65207c2376fdbce4b080a3d578cb51be8
+  SmartCodable: e4d5004b5454867978041818a86c648150f30575
 
-PODFILE CHECKSUM: 46ebc053f15174253c1d484d1e754b4dd870935b
+PODFILE CHECKSUM: dd3abb26ba1efdb8bae9414ed666978c13072ed8
 
 COCOAPODS: 1.16.2
