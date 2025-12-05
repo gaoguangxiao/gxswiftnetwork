@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'GXSwiftNetwork'
-    s.version          = '0.5.3'
+    s.version          = '0.5.4'
     s.summary          = 'feat：打印URL请求地址'
     
     # This description is used to generate tags and improve search results.

@@ -17,9 +17,9 @@ public class SensitiveWordApi: MSBApi, MSBDataResponse {
         super.init(path: "/wap/api/sensitive-word/hide",method: .post,sampleData: parameters.toJsonString ?? "",showHud: false)
     }
     
-    public func response(parameters: [String : Any]) async throws {
-         try await requestV2(MSBApiModel.self)
-    }
+//    public func response(parameters: [String : Any]) async throws {
+//         try await requestV2(MSBApiModel.self)
+//    }
 }
 
 
